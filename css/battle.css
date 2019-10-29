@@ -8,15 +8,36 @@ body {
 }
 
 #setting {
-	height: 100%;
+	height: 536px;
+	width: 992px;
 	background-image : url("../img/setting.png");
 	background-size: cover;
 	text-align: center;
-	padding: 40px 0px 0px 0px;
+  position:relative;
 }
 
 #setting p {
 	color: white;
+}
+
+#modeSelect {
+  position:absolute;
+  top: 40%;
+  left: 50%;
+  transform : translate(-50%,-50%);
+}
+
+#status {
+  position:absolute;
+  top: 40%;
+  left: 50%;
+  transform : translate(-50%,-50%);
+}
+
+#settingArea {
+  position:absolute;
+  left: 50%;
+  transform : translate(-50%,0);
 }
 
 label {
@@ -30,6 +51,34 @@ label input {
 	display: none;
 }
 
+#encount {
+  height: 536px;
+	width: 992px;
+	display: none;
+}
+
+#battle-start {
+	text-align: center;
+	height: 536px;
+	width: 992px;
+	display: table-cell;
+	vertical-align: middle;
+	margin: 0px 0px 0px 0px;
+	font-size:70px;
+	color:#FFF;
+	text-shadow:0px 0px 10px #FFF;
+}
+
+.fadein-start {
+	animation: fadeInStart 2.1s ease-in;
+}
+
+@keyframes fadeInStart {
+	0% {transform: scale(0.0, 8.0);}
+	50% {transform: scale(7.0, 2.0);}
+	100% {transform: scale(0.0, 0.0);opacity: 0.1;}
+}
+
 #main {
 	border: 3px solid #000;
 	margin-left: auto;
@@ -38,11 +87,7 @@ label input {
 	display: none;
 	background-size: cover;
 }
-#encount {
-	width: 100%;
-	height: 100%;
-	display: none;
-}
+
 .hp_block {
 	width: 150px;
 	margin-left: auto;
@@ -265,6 +310,19 @@ label input {
 	100% {transform: translate(0px, 0px); rotateZ(0deg);}
 }
 
+.shake2 {
+	display: inline-block;
+	animation: vibration2 .1s  infinite;
+}
+
+@keyframes vibration2 {
+	0% {transform: translate(0px, 0px); rotateZ(0deg);}
+	25% {transform: translate(5px, 5px); rotateZ(1deg);}
+	50% {transform: translate(0px, 0px); rotateZ(0deg);}
+	75% {transform: translate(0px, 0px); rotateZ(-1deg);}
+	100% {transform: translate(0px, 0px); rotateZ(0deg);}
+}
+
 .mob-move1 {
 	display: inline-block;
 	animation: mob-move1 .7s  infinite;
@@ -361,28 +419,6 @@ label input {
     0% { transform: translate(0px, 0px)}
     50% { transform: translate(0px, -30px) scale(1.1, 1.1)}
     100% { transform: translate(0px, 0px)}
-}
-
-#battle-start {
-	text-align: center;
-	width: 1200px;
-	height: 580px;
-	display: table-cell;
-	vertical-align: middle;
-	margin: 0px 0px 0px 0px;
-	font-size:90px;
-	color:#FFF;
-	text-shadow:0px 0px 10px #FFF;
-}
-
-.fadein-start {
-	animation: fadeInStart 2.1s ease-in;
-}
-
-@keyframes fadeInStart {
-	0% {transform: scale(0.0, 5.0);}
-	50% {transform: scale(7.0, 10.0);}
-	100%   {opacity: 0.1;}
 }
 
 .magic-effect {

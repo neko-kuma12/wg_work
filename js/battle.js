@@ -6,6 +6,9 @@ var chgFlg = 0;                         // 敵が変身したか判定するフ�
 var chgPer = 50;                        // 変身するHPの割合
 var dmgmax = 1000;                      // ダメージレンジ(最大)
 var dmgmin = 100;                       // ダメージレンジ(最小)
+var dmgRtCrtl = 1.5;                    // ダメージ倍率(クリティカル)
+var dmgRtMgc = 1.3;                     // ダメージ倍率(まほう)
+var dmgRtMob = 0.8;                     // ダメージ倍率(敵)
 var escapeFlg = 0;                      // 逃げるが成功したか判定するフラグ
 var fadeInTime = 1000;                  // フェードインの時間
 var fadeOutTime = 1000;                 // フェードアウトの時間
@@ -23,6 +26,7 @@ var hpWarnPer = 50;                     // 残HP(注意)判定割合
 var hpWarnColor = "#ffa500";            // 残HP(注意)文字色
 var lmtSp = 100;                        // SP限界値
 var log = "";                           // メッセージログ
+var settingPhase = 0;                   // 設定画面か判定するフラグ
 var spAcm = 10;                         // 攻撃時SP増加量
 var spAcmChar = 50;                     // ためる時SP増加量
 var spMaxFlg = 0;                       // SPがMAXになったか判定するフラグ
@@ -135,9 +139,9 @@ $(window).on('load', function() {
         // 設定項目表示
         $('#settingArea').css('display', 'block');
         // 戦闘ボタンを表示
-        $('#init-btn').css('display', 'block');
+        $('#init-btn').css('display', 'inline-block');
         // 戦闘ボタンを表示
-        $('#init-btn2').css('display', 'block');
+        $('#init-btn2').css('display', 'inline-block');
         battleMode = 1;
     });
 
@@ -215,9 +219,9 @@ $(window).on('load', function() {
         // レベルと経験値を表示
         $('#status').css('display', 'block');
         // データ削除ボタンを表示
-        $('#field-btn').css('display', 'block');
+        $('#field-btn').css('display', 'inline-block');
         // データ削除ボタンを表示
-        $('#dataDel-btn').css('display', 'block');
+        $('#dataDel-btn').css('display', 'inline-block');
     });
 
     /*
@@ -301,7 +305,7 @@ $(window).on('load', function() {
 
                 // 魔法のときは通常よりダメージ倍率アップ
                 if (cmd == '2') {
-                    dmg = Math.round(dmg * 1.3);
+                    dmg = Math.round(dmg * dmgRtMgc);
                 }
 
                 // ひっさつのときは通常よりダメージ倍率アップ
@@ -311,7 +315,7 @@ $(window).on('load', function() {
 
                 // ランダムが7かつ一定ダメージ以上なら会心の一撃
                 if (random1 == 7 && dmg >= 700) {
-                    dmg = Math.round(dmg * 1.5);
+                    dmg = Math.round(dmg * dmgRtCrtl);
                     log += 'クリティカルダメージ！！ ';
                 }
 
@@ -613,12 +617,12 @@ $(window).on('load', function() {
                 } else {
                     // ランダムが0なら痛恨の一撃
                     if (random1 == 0) {
-                        dmg = Math.round(dmg * 1.5);
+                        dmg = Math.round(dmg * dmgRtCrtl);
                         log += '敵のクリティカル！! ';
                     }
 
-                    // バランス調整で敵のダメージ軽減
-                    dmg = Math.round(dmg * 0.8);
+                    // 敵のダメージバランス調整
+                    dmg = Math.round(dmg * dmgRtMob);
 
                     // HPからダメージを減算
                     myHp -= (dmg);
@@ -640,6 +644,18 @@ $(window).on('load', function() {
                         $('#myPop').html('');
                         $('#myPop').removeClass('my-hp-pop');
                     }, 500);
+
+                    // 画面を揺らすクラスを追加
+                    var className = 'shake2';
+                    if (random1 == 0) {
+                        className = 'shake'
+                    }
+                    $('#main').addClass(className);
+                    // 0.5秒後に画面を揺らすクラスを削除
+                    var $timer = setTimeout(function() {
+                        $('#main').removeClass(className);
+                        clearTimeout($timer);
+                    }, 500)
 
                     $('#mobatk-se').get(0).play();
                     log += '敵から' + dmg + 'のダメージをくらった\n';

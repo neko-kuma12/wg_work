@@ -2,10 +2,11 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8"/>
-<link rel="stylesheet" type="text/css" href="./css/battle_jquery.css">
+<link rel="stylesheet" type="text/css" href="./css/battle.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="./js/battle_jquery.js" charset="UTF-8"></script>
+<script src="./js/battle.js" charset="UTF-8"></script>
 <script src="./js/map.js" charset="UTF-8"></script>
+<script src="./js/field.js" charset="UTF-8"></script>
 <!--<script src="./js/init.js"></script>-->
 </head>
 <body>
@@ -123,10 +124,20 @@
 
 
 <div id="setting">
-	<input type="button" id="battleMode" value="戦闘モード">
-	<input type="button" id="storyMode" value="ストーリーモード">
-	<div>
-		<table id="settingArea">
+	<div id="modeSelect">
+		<input type="button" id="battleMode" value="戦闘モード">
+		<input type="button" id="storyMode" value="ストーリーモード">
+	</div>
+	<div id="status">
+		<p>レベル：<span class="lebel"></span></p>
+		<p>経験値：<span class="exp"></span></p>
+		<div>
+			<input type="button" id="field-btn" value="フィールドへ">
+			<input type="button" id="dataDel-btn" value="セーブデータ削除">
+		</div>
+	</div>
+	<div id="settingArea">
+		<table>
 			<tr>
 			</tr>
 			<tr>
@@ -193,23 +204,15 @@
 				</td>
 			</tr>
 		</table>
-		<table id="status">
-			<tr>
-				<td><p>レベル：<span class="lebel"></span></p></td>
-			</tr>
-			<tr>
-				<td><p>経験値：<span class="exp"></span></p></td>
-			</tr>
-		</table>
-		<input type="button" id="init-btn" value="ゲームスタート"><br />
-		<input type="button" id="init-btn2" value="短縮版">
-		<input type="button" id="field-btn" value="フィールドへ"><br />
-		<input type="button" id="dataDel-btn" value="セーブデータ削除">
+		<div id="battleButton">
+			<input type="button" id="init-btn" value="ゲームスタート">
+			<input type="button" id="init-btn2" value="短縮版">
+		</div>
 	</div>
 </div>
 
 <div id="encount">
-	<p id="battle-start">戦闘開始</p>
+	<p id="battle-start">Battle<br>Start</p>
 </div>
 
 <canvas id="canvas"></canvas>
