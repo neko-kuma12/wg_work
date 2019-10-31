@@ -15,46 +15,48 @@ var mapchip3;
 var mapchipDungeon
 var mapchipDungeon2;
 var mapchipDungeon3;
+var sea;
+var seaImg = './img/sea.png';
 
 var map = [
-    ["FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"],
-    ["FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL08", "FL10", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"],
-    ["FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL09", "FL11", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"],
-    ["FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL06", "FL02", "FL02", "FL07", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"],
-    ["FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL06", "FL02", "FL02", "FL07", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"],
-    ["FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL04", "FL01", "FL01", "FL06", "FL02", "FL02", "FL07", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"],
-    ["FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL02", "FL01", "FL01", "FL06", "FL02", "FL02", "FL07", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL17", "FL01", "FL01", "FL01", "FL01"],
-    ["FL01", "FL03", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL99"],
-    ["FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL02", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL02", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"],
-    ["FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL02", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL02", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"],
-    ["FL01", "FL01", "FL01", "FL01", "FL01", "FL05", "FL01", "FL01", "FL02", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL02", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"],
-    ["FL01", "FL01", "FL01", "FL01", "FL01", "FL02", "FL01", "FL01", "FL02", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL02", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"],
-    ["FL01", "FL01", "FL01", "FL01", "FL01", "FL02", "FL02", "FL02", "FL02", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL02", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"],
-    ["FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL02", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL02", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"],
-    ["FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL02", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL02", "FL01", "FL01", "FL01", "FL01", "FL13", "FL15", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"],
-    ["FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL14", "FL16", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"],
-    ["FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"],
-    ["FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"]
+    ["FL70", "FL73", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90"],
+    ["FL72", "FL19", "FL90", "FL90", "FL90", "FL90", "FL90", "FL01", "FL01", "FL90", "FL90", "FL90", "FL08", "FL10", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL01", "FL01", "FL01", "FL90", "FL90", "FL90", "FL90"],
+    ["FL72", "FL18", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL09", "FL11", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL01", "FL01", "FL01", "FL01", "FL90", "FL90", "FL90", "FL90"],
+    ["FL72", "FL18", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL06", "FL02", "FL02", "FL07", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL90", "FL90"],
+    ["FL72", "FL20", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL06", "FL02", "FL02", "FL07", "FL01", "FL90", "FL90", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL90", "FL90"],
+    ["FL70", "FL71", "FL18", "FL01", "FL01", "FL01", "FL01", "FL01", "FL04", "FL01", "FL01", "FL06", "FL02", "FL02", "FL07", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL90"],
+    ["FL70", "FL72", "FL18", "FL01", "FL01", "FL01", "FL01", "FL01", "FL02", "FL01", "FL01", "FL06", "FL02", "FL02", "FL07", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL17", "FL01", "FL01", "FL01", "FL90"],
+    ["FL70", "FL72", "FL18", "FL03", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL99"],
+    ["FL70", "FL72", "FL18", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL02", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90"],
+    ["FL70", "FL72", "FL18", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL02", "FL01", "FL01", "FL90", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90"],
+    ["FL70", "FL73", "FL18", "FL01", "FL01", "FL01", "FL21", "FL21", "FL21", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL02", "FL01", "FL90", "FL90", "FL90", "FL90", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90"],
+    ["FL72", "FL19", "FL01", "FL01", "FL01", "FL23", "FL75", "FL74", "FL71", "FL18", "FL01", "FL01", "FL01", "FL02", "FL02", "FL02", "FL01", "FL90", "FL01", "FL90", "FL90", "FL90", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL90"],
+    ["FL72", "FL18", "FL01", "FL01", "FL01", "FL23", "FL76", "FL70", "FL72", "FL20", "FL01", "FL01", "FL01", "FL02", "FL01", "FL01", "FL90", "FL90", "FL01", "FL01", "FL01", "FL01", "FL90", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL90"],
+    ["FL72", "FL18", "FL01", "FL01", "FL01", "FL22", "FL76", "FL70", "FL70", "FL71", "FL18", "FL01", "FL01", "FL02", "FL01", "FL01", "FL90", "FL01", "FL01", "FL13", "FL15", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL90", "FL90", "FL90", "FL90"],
+    ["FL72", "FL18", "FL05", "FL01", "FL23", "FL75", "FL70", "FL70", "FL70", "FL72", "FL18", "FL01", "FL01", "FL02", "FL02", "FL01", "FL01", "FL01", "FL01", "FL14", "FL16", "FL01", "FL90", "FL90", "FL01", "FL01", "FL90", "FL90", "FL90", "FL90", "FL90"],
+    ["FL72", "FL20", "FL01", "FL01", "FL23", "FL76", "FL70", "FL70", "FL70", "FL72", "FL20", "FL01", "FL01", "FL01", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL01", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90"],
+    ["FL70", "FL71", "FL20", "FL21", "FL22", "FL76", "FL70", "FL70", "FL70", "FL70", "FL71", "FL18", "FL01", "FL01", "FL90", "FL90", "FL01", "FL01", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90"],
+    ["FL70", "FL70", "FL74", "FL74", "FL74", "FL70", "FL70", "FL70", "FL70", "FL70", "FL72", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90"]
 ]
 
 var map2 = [
-    ["FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"],
-    ["FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"],
-    ["FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"],
-    ["FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"],
-    ["FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"],
-    ["FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL12", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"],
-    ["FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL02", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"],
-    ["FL99", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"],
-    ["FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"],
-    ["FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"],
-    ["FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"],
-    ["FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"],
-    ["FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"],
-    ["FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"],
-    ["FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"],
-    ["FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"],
-    ["FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"],
+    ["FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"],
+    ["FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL90", "FL90", "FL01", "FL01"],
+    ["FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL01", "FL01", "FL90", "FL90", "FL90", "FL90", "FL90", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL90", "FL01"],
+    ["FL90", "FL90", "FL90", "FL90", "FL90", "FL01", "FL01", "FL01", "FL01", "FL90", "FL90", "FL90", "FL90", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"],
+    ["FL90", "FL90", "FL90", "FL90", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL90", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL90", "FL01", "FL01", "FL90", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"],
+    ["FL90", "FL90", "FL90", "FL90", "FL01", "FL01", "FL01", "FL12", "FL01", "FL01", "FL90", "FL90", "FL01", "FL01", "FL01", "FL90", "FL01", "FL90", "FL01", "FL90", "FL01", "FL90", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL90", "FL90", "FL01"],
+    ["FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL02", "FL01", "FL01", "FL90", "FL90", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01"],
+    ["FL99", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL01", "FL90", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL90", "FL90", "FL90", "FL90", "FL01", "FL01"],
+    ["FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"],
+    ["FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL90", "FL90", "FL90", "FL01", "FL90", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL90", "FL01", "FL90", "FL01", "FL01", "FL01"],
+    ["FL01", "FL90", "FL90", "FL90", "FL90", "FL90", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL90", "FL01", "FL90", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01"],
+    ["FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL90", "FL01", "FL01", "FL90", "FL01", "FL90", "FL90", "FL90", "FL90", "FL90", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01"],
+    ["FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL90", "FL90", "FL01", "FL01"],
+    ["FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL90", "FL01", "FL90", "FL01"],
+    ["FL01", "FL01", "FL01", "FL90", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01"],
+    ["FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01"],
+    ["FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"],
     ["FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"]
 ]
 
@@ -114,6 +116,32 @@ function drawMap(ctx) {
             if (curMap[y][x] === "FL17") ctx.drawImage(mapchip3, 32, 0, 32, 32, 32*x, 32*y, 32, 32);            // 看板
             if (curMap[y][x] === "FL99") ctx.drawImage(mapchip2, 192, 192, 32, 32, 32*x, 32*y, 32, 32);         // 道(MAP切り替え)
 
+            if (curMap[y][x] === "FL90") ctx.drawImage(mapchip2, 224, 0, 32, 32, 32*x, 32*y, 32, 32);           // 山(地面)
+            if (curMap[y][x] === "FL90") ctx.drawImage(mapchip2, 320, 192, 32, 32, 32*x, 32*y, 32, 32);         // 山
+
+            if (curMap[y][x] === "FL18") ctx.drawImage(mapchip2, 132, 44, 32, 32, 32*x, 32*y, 32, 32);            // 波際
+            if (curMap[y][x] === "FL19") ctx.drawImage(mapchip2, 132, 34, 32, 32, 32*x, 32*y, 32, 32);            // 波際
+            if (curMap[y][x] === "FL20") ctx.drawImage(mapchip2, 132, 58, 32, 32, 32*x, 32*y, 32, 32);            // 波際
+            if (curMap[y][x] === "FL21") ctx.drawImage(mapchip2, 140, 58, 32, 32, 32*x, 32*y, 32, 32);            // 波際
+            if (curMap[y][x] === "FL22") ctx.drawImage(mapchip2, 160, 58, 32, 32, 32*x, 32*y, 32, 32);            // 波際
+            if (curMap[y][x] === "FL23") ctx.drawImage(mapchip2, 158, 44, 32, 32, 32*x, 32*y, 32, 32);            // 波際
+
+
+
+
+            if (curMap[y][x] === "FL70") ctx.drawImage(sea, 18, 42, 32, 32, 32*x, 32*y, 32, 32);           // 海
+            if (curMap[y][x] === "FL71") ctx.drawImage(sea, 32, 32, 32, 32, 32*x, 32*y, 32, 32);           // 海
+            if (curMap[y][x] === "FL72") ctx.drawImage(sea, 32, 44, 32, 32, 32*x, 32*y, 32, 32);           // 海
+            if (curMap[y][x] === "FL73") ctx.drawImage(sea, 32, 64, 32, 32, 32*x, 32*y, 32, 32);           // 海
+            if (curMap[y][x] === "FL74") ctx.drawImage(sea, 18, 32, 32, 32, 32*x, 32*y, 32, 32);           // 海
+            if (curMap[y][x] === "FL75") ctx.drawImage(sea, 0, 32, 32, 32, 32*x, 32*y, 32, 32);           // 海
+            if (curMap[y][x] === "FL76") ctx.drawImage(sea, 0, 44, 32, 32, 32*x, 32*y, 32, 32);           // 海
+
+
+            if (curMap[y][x] === "FL90") ctx.drawImage(sea, 320, 192, 32, 32, 32*x, 32*y, 32, 32);         // 山
+
+
+
             /*------------------------------ ダンジョンオブジェクト ------------------------------*/
             if (curMap[y][x] === "DG01") ctx.drawImage(mapchipDungeon, 0, 0, 32, 32, 32*x, 32*y, 32, 32);       // ダンジョン地面
             if (curMap[y][x] === "DG02") ctx.drawImage(mapchipDungeon2, 32, 64, 32, 32, 32*x, 32*y, 32, 32);    // 壁(正面)上部
@@ -136,8 +164,8 @@ function drawMap(ctx) {
             if (curMap[y][x] === "DG93") ctx.drawImage(mapchipDungeon2, 224, 32, 32, 32, 32*x, 32*y, 32, 32);   // 黒塗り(右下)
             if (curMap[y][x] === "DG94") ctx.drawImage(mapchipDungeon2, 32, 32, 32, 32, 32*x, 32*y, 32, 32);    // 黒塗り
             if (curMap[y][x] === "DG99") ctx.drawImage(mapchipDungeon, 0, 0, 32, 32, 32*x, 32*y, 32, 32);       // ダンジョン地面(MAP切り替え)
-            if (curMap[y][x] === "DG16") ctx.drawImage(mapchipDungeon, 0, 0, 32, 32, 32*x, 32*y, 32, 32);
-            if (curMap[y][x] === "DG16") ctx.drawImage(box, 0, 0, 32, 32, 32*x, 32*y, 32, 32);
+            if (curMap[y][x] === "DG16") ctx.drawImage(mapchipDungeon, 0, 0, 32, 32, 32*x, 32*y, 32, 32);       // 宝箱（地面）
+            if (curMap[y][x] === "DG16") ctx.drawImage(box, 0, 0, 32, 32, 32*x, 32*y, 32, 32);                  // 宝箱
 
             if (curMap[y][x] === "DG80") ctx.drawImage(mapchipDungeon, 0, 0, 32, 32, 32*x, 32*y, 32, 32);
             if (curMap[y][x] === "DG80") ctx.drawImage(door, 256, 0, 32, 32, 24*x, 32*y, 40, 32);
@@ -167,6 +195,8 @@ function loadMapImage() {
     mapchip2.src = fieldImg2;
     mapchip3 = new Image();
     mapchip3.src = fieldImg3;
+    sea = new Image();
+    sea.src = seaImg;
     mapchipDungeon = new Image();
     mapchipDungeon.src = dungeonImg;
     mapchipDungeon2 = new Image();

@@ -231,9 +231,16 @@ function loadImage() {
  * 移動可能判定
  */
 function movableJudge(y, x) {
-    if (curMap[y][x] === "FL02" ||
+    if (curMap[y][x] === "FL01" ||
+        curMap[y][x] === "FL02" ||
         curMap[y][x] === "FL04" ||
         curMap[y][x] === "FL12" ||
+        curMap[y][x] === "FL18" ||
+        curMap[y][x] === "FL19" ||
+        curMap[y][x] === "FL20" ||
+        curMap[y][x] === "FL21" ||
+        curMap[y][x] === "FL22" ||
+        curMap[y][x] === "FL23" ||
         curMap[y][x] === "FL99" ||
         curMap[y][x] === "DG01" ||
         curMap[y][x] === "DG99"
@@ -365,7 +372,7 @@ $(window).on('load', function() {
     $('#canvas').attr('height', canvasHeight);
 
     // 初期マップ設定
-    curMap = map3;
+    curMap = map;
 
     // ブラウザサイズ変更時、canvasの幅と高さをリサイズ
     $(window).on('resize', function(){setSize()});
