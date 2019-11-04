@@ -15,22 +15,27 @@ var encountMax = 100;
 var encountMin = 0;
 var encountRt = 0;
 var flame = 150;
+var haveKeyFlg = 0;
 var key = new Object();
     key.up = false;
     key.down = false;
     key.right = false;
     key.left = false;
     key.push = '';
-var keyCodeLeft = 37;
-var keyCodeUp = 38;
-var keyCodeRight = 39;
 var keyCodeDown = 40;
+var keyCodeEnter = 13;
+var keyCodeF5 = 116;
+var keyCodeLeft = 37;
+var keyCodeRight = 39;
+var keyCodeUp = 38;
 var message;
 var mob;
 var motion = 0;
 var mouseState = -1;
 var move = 0;
 var oldMotion = 0;
+var openBoxFlg1 = 0;
+var openBoxFlg2 = 0;
 var player;
 var pos_x = 256;
 var pos_y = 192;
@@ -82,6 +87,25 @@ function changeAngleUp() {
 }
 
 /**
+ * 動き変更
+ */
+function changeMotion() {
+    if (motion === -32) {
+        motion = 0;
+        oldMotion = -32;
+    } else if (motion === 0) {
+        if (oldMotion === 32) {
+            motion = -32;
+        } else {
+            motion = 32;
+        }
+    } else if (motion === 32) {
+        motion = 0;
+        oldMotion = 32;
+    }
+}
+
+/**
  * 描画メイン処理
  */
 function drawMain(ctx) {
@@ -106,25 +130,6 @@ function drawMain(ctx) {
     drawStatus(ctx);
     // メッセージ描画
     drawMessage(ctx);
-}
-
-/**
- * 動き変更
- */
-function changeMotion() {
-    if (motion === -32) {
-        motion = 0;
-        oldMotion = -32;
-    } else if (motion === 0) {
-        if (oldMotion === 32) {
-            motion = -32;
-        } else {
-            motion = 32;
-        }
-    } else if (motion === 32) {
-        motion = 0;
-        oldMotion = 32;
-    }
 }
 
 /**
@@ -231,20 +236,14 @@ function loadImage() {
  * 移動可能判定
  */
 function movableJudge(y, x) {
-    if (curMap[y][x] === "FL01" ||
-        curMap[y][x] === "FL02" ||
-        curMap[y][x] === "FL04" ||
-        curMap[y][x] === "FL12" ||
-        curMap[y][x] === "FL18" ||
-        curMap[y][x] === "FL19" ||
-        curMap[y][x] === "FL20" ||
-        curMap[y][x] === "FL21" ||
-        curMap[y][x] === "FL22" ||
-        curMap[y][x] === "FL23" ||
-        curMap[y][x] === "FL99" ||
-        curMap[y][x] === "DG01" ||
-        curMap[y][x] === "DG99"
-       ) {
+    if ((curMap[y][x] === "FL01" || curMap[y][x] === "FL02" || curMap[y][x] === "FL04" || curMap[y][x] === "FL12" ||
+          curMap[y][x] === "FL13" || curMap[y][x] === "FL14" || curMap[y][x] === "FL15" || curMap[y][x] === "FL16" ||
+          curMap[y][x] === "FL18" || curMap[y][x] === "FL19" || curMap[y][x] === "FL20" || curMap[y][x] === "FL21" ||
+          curMap[y][x] === "FL22" || curMap[y][x] === "FL23" || curMap[y][x] === "FL99" ||
+          curMap[y][x] === "FT01" ||
+          curMap[y][x] === "DG01" || curMap[y][x] === "DG99")
+         || (haveKeyFlg >= 1 && (curMap[y][x] === "DG80" || curMap[y][x] === "DG81" || curMap[y][x] === "DG82" || curMap[y][x] === "DG83"))
+       )  {
         return true;
     } else {
         return false;
@@ -393,12 +392,12 @@ $(window).keydown(function(ev) {
     ev.preventDefault();
 
     // F5でリロードできるようにする
-    if (keyCode === 116) {
+    if (keyCode === keyCodeF5) {
         location.reload();
     }
 
     // エンターキーが押された場合
-    if (keyCode === 13) {
+    if (keyCode === keyCodeEnter) {
         // 戦闘終了時のみ処理させる
         if (battleEndFlg == 1) {
             // 戦闘画面を非表示
@@ -416,7 +415,7 @@ $(window).keydown(function(ev) {
                 $('#canvas').css('display', 'block');
             }, 100);
         }
-                // 戦闘終了時のみ処理させる
+        // エンカウント時のみ処理させる
         if (encountFlg == 1) {
             message = "";
             encountFlg = 2;
