@@ -54,22 +54,22 @@ var map = [
 // フィールド2枚目
 var map2 = [
     ["FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"],
-    ["FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL90", "FL90", "FL01", "FL01"],
-    ["FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL01", "FL01", "FL90", "FL90", "FL90", "FL90", "FL90", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL90", "FL01"],
-    ["FL90", "FL90", "FL90", "FL90", "FL90", "FL01", "FL01", "FL01", "FL01", "FL90", "FL90", "FL90", "FL90", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"],
-    ["FL90", "FL90", "FL90", "FL90", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL90", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL90", "FL01", "FL01", "FL90", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"],
-    ["FL90", "FL90", "FL90", "FL90", "FL01", "FL01", "FL01", "FL12", "FL01", "FL01", "FL90", "FL90", "FL01", "FL01", "FL01", "FL90", "FL01", "FL90", "FL01", "FL90", "FL01", "FL90", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL90", "FL90", "FL01"],
-    ["FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL02", "FL01", "FL01", "FL90", "FL90", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01"],
-    ["FL99", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL01", "FL90", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL90", "FL90", "FL90", "FL90", "FL01", "FL01"],
-    ["FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"],
-    ["FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL90", "FL90", "FL90", "FL01", "FL90", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL90", "FL01", "FL90", "FL01", "FL01", "FL01"],
-    ["FL01", "FL90", "FL90", "FL90", "FL90", "FL90", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL90", "FL01", "FL90", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01"],
-    ["FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL90", "FL01", "FL01", "FL90", "FL01", "FL90", "FL90", "FL90", "FL90", "FL90", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01"],
-    ["FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL90", "FL90", "FL01", "FL01"],
-    ["FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL90", "FL01", "FL90", "FL01"],
-    ["FL01", "FL01", "FL01", "FL90", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01"],
-    ["FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01"],
-    ["FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"],
+    ["FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL91", "FL91", "FL91", "FL01", "FL01"],
+    ["FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL01", "FL01", "FL90", "FL90", "FL90", "FL90", "FL90", "FL01", "FL91", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL91", "FL01", "FL01", "FL91", "FL01", "FL01", "FL01", "FL91", "FL01"],
+    ["FL90", "FL90", "FL90", "FL90", "FL90", "FL01", "FL01", "FL01", "FL01", "FL90", "FL90", "FL90", "FL90", "FL01", "FL91", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL91", "FL01", "FL91", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"],
+    ["FL90", "FL90", "FL90", "FL90", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL90", "FL90", "FL01", "FL01", "FL01", "FL91", "FL01", "FL01", "FL91", "FL01", "FL01", "FL91", "FL01", "FL01", "FL91", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"],
+    ["FL90", "FL90", "FL90", "FL90", "FL01", "FL01", "FL01", "FL12", "FL01", "FL01", "FL90", "FL90", "FL01", "FL01", "FL01", "FL91", "FL01", "FL91", "FL01", "FL91", "FL01", "FL91", "FL01", "FL01", "FL91", "FL01", "FL01", "FL01", "FL91", "FL91", "FL01"],
+    ["FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL02", "FL01", "FL01", "FL90", "FL90", "FL01", "FL01", "FL01", "FL01", "FL91", "FL01", "FL01", "FL01", "FL91", "FL01", "FL01", "FL01", "FL91", "FL01", "FL01", "FL01", "FL01", "FL91", "FL01"],
+    ["FL99", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL02", "FL01", "FL90", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL91", "FL01", "FL01", "FL01", "FL91", "FL01", "FL01", "FL01", "FL01", "FL91", "FL91", "FL91", "FL91", "FL01", "FL01"],
+    ["FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL91", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"],
+    ["FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL91", "FL91", "FL91", "FL91", "FL01", "FL91", "FL01", "FL01", "FL91", "FL01", "FL01", "FL01", "FL01", "FL01", "FL91", "FL01", "FL91", "FL01", "FL91", "FL01", "FL01", "FL01"],
+    ["FL01", "FL91", "FL91", "FL91", "FL91", "FL91", "FL01", "FL01", "FL91", "FL01", "FL01", "FL01", "FL91", "FL01", "FL91", "FL01", "FL01", "FL91", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL91", "FL01", "FL01", "FL91", "FL01", "FL01", "FL01"],
+    ["FL01", "FL01", "FL01", "FL01", "FL01", "FL91", "FL01", "FL91", "FL01", "FL01", "FL01", "FL01", "FL91", "FL01", "FL91", "FL01", "FL01", "FL91", "FL01", "FL91", "FL91", "FL91", "FL91", "FL91", "FL01", "FL01", "FL01", "FL91", "FL01", "FL01", "FL01"],
+    ["FL01", "FL01", "FL01", "FL01", "FL01", "FL91", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL91", "FL01", "FL01", "FL01", "FL01", "FL91", "FL01", "FL01", "FL01", "FL01", "FL01", "FL91", "FL01", "FL01", "FL01", "FL91", "FL91", "FL01", "FL01"],
+    ["FL01", "FL01", "FL01", "FL01", "FL91", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL91", "FL01", "FL01", "FL01", "FL01", "FL01", "FL91", "FL01", "FL01", "FL01", "FL01", "FL01", "FL91", "FL01", "FL01", "FL01", "FL91", "FL01", "FL91", "FL01"],
+    ["FL01", "FL01", "FL01", "FL91", "FL01", "FL91", "FL01", "FL01", "FL01", "FL01", "FL91", "FL01", "FL01", "FL01", "FL01", "FL01", "FL91", "FL01", "FL01", "FL01", "FL01", "FL01", "FL91", "FL01", "FL01", "FL01", "FL01", "FL91", "FL01", "FL01", "FL01"],
+    ["FL01", "FL01", "FL91", "FL01", "FL01", "FL01", "FL91", "FL01", "FL01", "FL91", "FL01", "FL01", "FL01", "FL01", "FL01", "FL91", "FL01", "FL01", "FL01", "FL01", "FL01", "FL91", "FL01", "FL01", "FL01", "FL01", "FL01", "FL91", "FL01", "FL01", "FL01"],
+    ["FL01", "FL91", "FL01", "FL01", "FL01", "FL01", "FL01", "FL91", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL91", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL91", "FL01", "FL01", "FL01"],
     ["FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01", "FL01"]
 ]
 
@@ -102,19 +102,63 @@ var map4 = [
     ["FT22", "FT23", "FT24", "FT25", "FT26", "FT27", "FT28", "FT29", "FT22", "FT23", "FT24", "FT25", "FT26", "FT27", "FT28", "FT29", "FT22", "FT23", "FT24", "FT25", "FT26", "FT27", "FT28", "FT29", "FT22", "FT23", "FT24", "FT25", "FT26", "FT27", "FT28"],
     ["FT32", "FT33", "FT34", "FT35", "FT36", "FT37", "FT38", "FT39", "FT32", "FT33", "FT34", "FT35", "FT36", "FT37", "FT38", "FT39", "FT32", "FT33", "FT34", "FT35", "FT36", "FT37", "FT38", "FT39", "FT32", "FT33", "FT34", "FT35", "FT36", "FT37", "FT38"],
     ["FT42", "FT43", "FT44", "FT45", "FT46", "FT47", "FT48", "FT49", "FT42", "FT43", "FT44", "FT45", "FT46", "FT47", "FT48", "FT49", "FT42", "FT43", "FT44", "FT45", "FT46", "FT47", "FT48", "FT49", "FT42", "FT43", "FT44", "FT45", "FT46", "FT47", "FT48"],
-    ["FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT10", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT10", "FT01", "FT01", "FT01", "FT01", "FT10", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT10"],
-    ["FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT10", "FT01", "FT01", "FT01", "FT01", "FT10", "FT01", "FT01", "FT10", "FT10", "FT10", "FT10", "FT01", "FT01", "FT10", "FT01", "FT01", "FT01", "FT01", "FT01", "FT10", "FT10", "FT01", "FT10"],
-    ["FT10", "FT10", "FT01", "FT01", "FT01", "FT01", "FT01", "FT10", "FT01", "FT01", "FT01", "FT10", "FT01", "FT01", "FT10", "FT01", "FT01", "FT01", "FT01", "FT10", "FT01", "FT01", "FT10", "FT01", "FT01", "FT01", "FT10", "FT01", "FT10", "FT01", "FT10"],
-    ["FT01", "FT01", "FT11", "FT01", "FT01", "FT01", "FT01", "FT10", "FT01", "FT01", "FT10", "FT01", "FT01", "FT10", "FT01", "FT01", "FT01", "FT01", "FT01", "FT10", "FT01", "FT01", "FT10", "FT01", "FT01", "FT01", "FT10", "FT01", "FT01", "FT01", "FT10"],
-    ["FT11", "FT01", "FT01", "FT10", "FT01", "FT01", "FT10", "FT01", "FT01", "FT10", "FT01", "FT01", "FT10", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT10", "FT01", "FT10", "FT01", "FT01", "FT01", "FT10", "FT01", "FT01", "FT01", "FT01", "FT10"],
-    ["FT01", "FT70", "FT73", "FT76", "FT01", "FT01", "FT10", "FT01", "FT10", "FT01", "FT01", "FT10", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT10", "FT01", "FT01", "FT10", "FT01", "FT01", "FT10", "FT01", "FT01", "FT01", "FT10", "FT10", "FT10"],
-    ["FT01", "FT71", "FT74", "FT77", "FT01", "FT10", "FT10", "FT01", "FT10", "FT01", "FT10", "FT01", "FT01", "FT10", "FT10", "FT10", "FT01", "FT10", "FT01", "FT01", "FT10", "FT10", "FT01", "FT01", "FT10", "FT01", "FT10", "FT10", "FT01", "FT01", "FT01"],
-    ["FT01", "FT72", "FT75", "FT78", "FT01", "FT01", "FT01", "FT01", "FT10", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT10", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT10", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01"],
+    ["FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT10", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT10", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01"],
+    ["FT96", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT10", "FT01", "FT01", "FT01", "FT10", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT10", "FT01", "FT01", "FT01"],
+    ["FT10", "FT10", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT10", "FT01", "FT01", "FT01", "FT01", "FT10", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01"],
+    ["FT01", "FT01", "FT11", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT10", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT10"],
+    ["FT11", "FT01", "FT01", "FT10", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT98"],
+    ["FT01", "FT70", "FT73", "FT76", "FT01", "FT01", "FT10", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT10", "FT01", "FT01"],
+    ["FT01", "FT71", "FT74", "FT77", "FT01", "FT10", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT10", "FT01", "FT01", "FT10", "FT01", "FT01", "FT01", "FT10", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01"],
+    ["FT01", "FT72", "FT75", "FT78", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT10", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01"],
     ["FT52", "FT53", "FT50", "FT51", "FT52", "FT53", "FT50", "FT51", "FT52", "FT53", "FT50", "FT51", "FT52", "FT53", "FT01", "FT50", "FT51", "FT52", "FT53", "FT50", "FT51", "FT52", "FT53", "FT50", "FT51", "FT52", "FT53", "FT50", "FT51", "FT52", "FT53"],
     ["FT56", "FT57", "FT54", "FT55", "FT56", "FT57", "FT54", "FT55", "FT56", "FT57", "FT54", "FT55", "FT56", "FT57", "FT01", "FT54", "FT55", "FT56", "FT57", "FT54", "FT55", "FT56", "FT57", "FT54", "FT55", "FT56", "FT57", "FT54", "FT55", "FT56", "FT57"],
     ["FT60", "FT61", "FT58", "FT59", "FT60", "FT61", "FT58", "FT59", "FT60", "FT61", "FT58", "FT59", "FT60", "FT61", "FT01", "FT58", "FT59", "FT60", "FT61", "FT58", "FT59", "FT60", "FT61", "FT58", "FT59", "FT60", "FT61", "FT58", "FT59", "FT60", "FT61"],
     ["FT64", "FT65", "FT62", "FT63", "FT64", "FT65", "FT62", "FT63", "FT64", "FT65", "FT62", "FT63", "FT64", "FT65", "FT99", "FT62", "FT63", "FT64", "FT65", "FT62", "FT63", "FT64", "FT65", "FT62", "FT63", "FT64", "FT65", "FT62", "FT63", "FT64", "FT65"],
     ["FT68", "FT69", "FT66", "FT67", "FT68", "FT69", "FT66", "FT67", "FT68", "FT69", "FT66", "FT67", "FT68", "FT69", "FT01", "FT66", "FT67", "FT68", "FT69", "FT66", "FT67", "FT68", "FT69", "FT66", "FT67", "FT68", "FT69", "FT66", "FT67", "FT68", "FT69"]
+]
+
+// 森林2枚目
+var map5 = [
+    ["FT09", "FT02", "FT03", "FT04", "FT05", "FT06", "FT07", "FT08", "FT09", "FT02", "FT03", "FT04", "FT05", "FT06", "FT07", "FT08", "FT09", "FT02", "FT03", "FT04", "FT05", "FT06", "FT07", "FT08", "FT09", "FT02", "FT03", "FT04", "FT05", "FT06", "FT07"],
+    ["FT19", "FT12", "FT13", "FT14", "FT15", "FT16", "FT17", "FT18", "FT19", "FT12", "FT13", "FT14", "FT15", "FT16", "FT17", "FT18", "FT19", "FT12", "FT13", "FT14", "FT15", "FT16", "FT17", "FT18", "FT19", "FT12", "FT13", "FT14", "FT15", "FT16", "FT17"],
+    ["FT29", "FT22", "FT23", "FT24", "FT25", "FT26", "FT27", "FT28", "FT29", "FT22", "FT23", "FT24", "FT25", "FT26", "FT27", "FT28", "FT29", "FT22", "FT23", "FT24", "FT25", "FT26", "FT27", "FT28", "FT29", "FT22", "FT23", "FT24", "FT25", "FT26", "FT27"],
+    ["FT39", "FT32", "FT33", "FT34", "FT35", "FT36", "FT37", "FT38", "FT39", "FT32", "FT33", "FT34", "FT35", "FT36", "FT37", "FT38", "FT39", "FT32", "FT33", "FT34", "FT35", "FT36", "FT37", "FT38", "FT39", "FT32", "FT33", "FT34", "FT35", "FT36", "FT37"],
+    ["FT49", "FT42", "FT43", "FT44", "FT45", "FT46", "FT47", "FT48", "FT49", "FT42", "FT43", "FT44", "FT45", "FT46", "FT47", "FT48", "FT49", "FT42", "FT43", "FT44", "FT45", "FT46", "FT47", "FT48", "FT49", "FT42", "FT43", "FT44", "FT45", "FT46", "FT47"],
+    ["FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT10"],
+    ["FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT10"],
+    ["FT10", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT10"],
+    ["FT97", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT10"],
+    ["FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT10"],
+    ["FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT10"],
+    ["FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT10"],
+    ["FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT10"],
+    ["FT50", "FT51", "FT52", "FT53", "FT50", "FT51", "FT52", "FT53", "FT50", "FT51", "FT52", "FT53", "FT50", "FT51", "FT52", "FT53", "FT50", "FT51", "FT52", "FT53", "FT50", "FT51", "FT52", "FT53", "FT50", "FT51", "FT52", "FT53", "FT50", "FT51", "FT52"],
+    ["FT54", "FT55", "FT56", "FT57", "FT54", "FT55", "FT56", "FT57", "FT54", "FT55", "FT56", "FT57", "FT54", "FT55", "FT56", "FT57", "FT54", "FT55", "FT56", "FT57", "FT54", "FT55", "FT56", "FT57", "FT54", "FT55", "FT56", "FT57", "FT54", "FT55", "FT56"],
+    ["FT58", "FT59", "FT60", "FT61", "FT58", "FT59", "FT60", "FT61", "FT58", "FT59", "FT60", "FT61", "FT58", "FT59", "FT60", "FT61", "FT58", "FT59", "FT60", "FT61", "FT58", "FT59", "FT60", "FT61", "FT58", "FT59", "FT60", "FT61", "FT58", "FT59", "FT60"],
+    ["FT62", "FT63", "FT64", "FT65", "FT62", "FT63", "FT64", "FT65", "FT62", "FT63", "FT64", "FT65", "FT62", "FT63", "FT64", "FT65", "FT62", "FT63", "FT64", "FT65", "FT62", "FT63", "FT64", "FT65", "FT62", "FT63", "FT64", "FT65", "FT62", "FT63", "FT64"],
+    ["FT66", "FT67", "FT68", "FT69", "FT66", "FT67", "FT68", "FT69", "FT66", "FT67", "FT68", "FT69", "FT66", "FT67", "FT68", "FT69", "FT66", "FT67", "FT68", "FT69", "FT66", "FT67", "FT68", "FT69", "FT66", "FT67", "FT68", "FT69", "FT66", "FT67", "FT68"]
+]
+
+// 森林3枚目
+var map6 = [
+    ["FT03", "FT04", "FT05", "FT06", "FT07", "FT08", "FT09", "FT02", "FT03", "FT04", "FT05", "FT06", "FT07", "FT08", "FT09", "FT02", "FT03", "FT04", "FT05", "FT06", "FT07", "FT08", "FT09", "FT02", "FT03", "FT04", "FT05", "FT06", "FT07", "FT08", "FT09"],
+    ["FT13", "FT14", "FT15", "FT16", "FT17", "FT18", "FT19", "FT12", "FT13", "FT14", "FT15", "FT16", "FT17", "FT18", "FT19", "FT12", "FT13", "FT14", "FT15", "FT16", "FT17", "FT18", "FT19", "FT12", "FT13", "FT14", "FT15", "FT16", "FT17", "FT18", "FT19"],
+    ["FT23", "FT24", "FT25", "FT26", "FT27", "FT28", "FT29", "FT22", "FT23", "FT24", "FT25", "FT26", "FT27", "FT28", "FT29", "FT22", "FT23", "FT24", "FT25", "FT26", "FT27", "FT28", "FT29", "FT22", "FT23", "FT24", "FT25", "FT26", "FT27", "FT28", "FT29"],
+    ["FT33", "FT34", "FT35", "FT36", "FT37", "FT38", "FT39", "FT32", "FT33", "FT34", "FT35", "FT36", "FT37", "FT38", "FT39", "FT32", "FT33", "FT34", "FT35", "FT36", "FT37", "FT38", "FT39", "FT32", "FT33", "FT34", "FT35", "FT36", "FT37", "FT38", "FT39"],
+    ["FT43", "FT44", "FT45", "FT46", "FT47", "FT48", "FT49", "FT42", "FT43", "FT44", "FT45", "FT46", "FT47", "FT48", "FT49", "FT42", "FT43", "FT44", "FT45", "FT46", "FT47", "FT48", "FT49", "FT42", "FT43", "FT44", "FT45", "FT46", "FT47", "FT48", "FT49"],
+    ["FT10", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01"],
+    ["FT10", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT95"],
+    ["FT10", "FT01", "FT01", "FT80", "FT81", "FT82", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01"],
+    ["FT10", "FT01", "FT01", "FT83", "FT84", "FT85", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01"],
+    ["FT10", "FT01", "FT01", "FT86", "FT87", "FT88", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01"],
+    ["FT10", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01"],
+    ["FT10", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01"],
+    ["FT10", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01", "FT01"],
+    ["FT53", "FT50", "FT51", "FT52", "FT53", "FT50", "FT51", "FT52", "FT53", "FT50", "FT51", "FT52", "FT53", "FT50", "FT51", "FT52", "FT53", "FT50", "FT51", "FT52", "FT53", "FT50", "FT51", "FT52", "FT53", "FT50", "FT51", "FT52", "FT53", "FT50", "FT51"],
+    ["FT57", "FT54", "FT55", "FT56", "FT57", "FT54", "FT55", "FT56", "FT57", "FT54", "FT55", "FT56", "FT57", "FT54", "FT55", "FT56", "FT57", "FT54", "FT55", "FT56", "FT57", "FT54", "FT55", "FT56", "FT57", "FT54", "FT55", "FT56", "FT57", "FT54", "FT55"],
+    ["FT61", "FT58", "FT59", "FT60", "FT61", "FT58", "FT59", "FT60", "FT61", "FT58", "FT59", "FT60", "FT61", "FT58", "FT59", "FT60", "FT61", "FT58", "FT59", "FT60", "FT61", "FT58", "FT59", "FT60", "FT61", "FT58", "FT59", "FT60", "FT61", "FT58", "FT59"],
+    ["FT65", "FT62", "FT63", "FT64", "FT65", "FT62", "FT63", "FT64", "FT65", "FT62", "FT63", "FT64", "FT65", "FT62", "FT63", "FT64", "FT65", "FT62", "FT63", "FT64", "FT65", "FT62", "FT63", "FT64", "FT65", "FT62", "FT63", "FT64", "FT65", "FT62", "FT63"],
+    ["FT69", "FT66", "FT67", "FT68", "FT69", "FT66", "FT67", "FT68", "FT69", "FT66", "FT67", "FT68", "FT69", "FT66", "FT67", "FT68", "FT69", "FT66", "FT67", "FT68", "FT69", "FT66", "FT67", "FT68", "FT69", "FT66", "FT67", "FT68", "FT69", "FT66", "FT67"]
 ]
 
 /**
@@ -152,8 +196,10 @@ function drawMap(ctx) {
             if (curMap[y][x] === "FL17") ctx.drawImage(mapchip3, 32, 0, 32, 32, 32*x, 32*y, 32, 32);            // 看板
             if (curMap[y][x] === "FL99") ctx.drawImage(mapchip2, 192, 192, 32, 32, 32*x, 32*y, 32, 32);         // 道(MAP切り替え)
 
-            if (curMap[y][x] === "FL90") ctx.drawImage(mapchip2, 224, 0, 32, 32, 32*x, 32*y, 32, 32);           // 山(地面)
-            if (curMap[y][x] === "FL90") ctx.drawImage(mapchip2, 320, 192, 32, 32, 32*x, 32*y, 32, 32);         // 山
+            if (curMap[y][x] === "FL90") ctx.drawImage(mapchip2, 224, 0, 32, 32, 32*x, 32*y, 32, 32);           // 緑の山(地面)
+            if (curMap[y][x] === "FL90") ctx.drawImage(mapchip2, 320, 192, 32, 32, 32*x, 32*y, 32, 32);         // 緑の山
+            if (curMap[y][x] === "FL91") ctx.drawImage(mapchip2, 224, 0, 32, 32, 32*x, 32*y, 32, 32);           // 茶色の山(地面)
+            if (curMap[y][x] === "FL91") ctx.drawImage(mapchip2, 384, 192, 32, 32, 32*x, 32*y, 32, 32);         // 茶色の山
 
             if (curMap[y][x] === "FL18") ctx.drawImage(mapchip2, 132, 44, 32, 32, 32*x, 32*y, 32, 32);            // 波際
             if (curMap[y][x] === "FL19") ctx.drawImage(mapchip2, 132, 34, 32, 32, 32*x, 32*y, 32, 32);            // 波際
@@ -173,10 +219,12 @@ function drawMap(ctx) {
             if (curMap[y][x] === "FL78") ctx.drawImage(sea, 42, 0, 20, 24, 32*x, 32*y, 32, 32);           // 海
             if (curMap[y][x] === "FL79") ctx.drawImage(sea, 42, 6, 20, 24, 32*x, 32*y, 32, 32);           // 海
 
-            if (curMap[y][x] === "FL90") ctx.drawImage(sea, 320, 192, 32, 32, 32*x, 32*y, 32, 32);         // 山
-
             /*------------------------------ 森林オブジェクト ------------------------------*/
             if (curMap[y][x] === "FT01") ctx.drawImage(mapchipForest, 0, 0, 32, 32, 32*x, 32*y, 32, 32);       // 森林地面
+            if (curMap[y][x] === "FT95") ctx.drawImage(mapchipForest, 0, 0, 32, 32, 32*x, 32*y, 32, 32);       // 森林地面(MAP切り替え)
+            if (curMap[y][x] === "FT96") ctx.drawImage(mapchipForest, 0, 0, 32, 32, 32*x, 32*y, 32, 32);       // 森林地面(MAP切り替え)
+            if (curMap[y][x] === "FT97") ctx.drawImage(mapchipForest, 0, 0, 32, 32, 32*x, 32*y, 32, 32);       // 森林地面(MAP切り替え)
+            if (curMap[y][x] === "FT98") ctx.drawImage(mapchipForest, 0, 0, 32, 32, 32*x, 32*y, 32, 32);       // 森林地面(MAP切り替え)
             if (curMap[y][x] === "FT99") ctx.drawImage(mapchipForest, 0, 0, 32, 32, 32*x, 32*y, 32, 32);       // 森林地面(MAP切り替え)
             if (curMap[y][x] === "FT02") ctx.drawImage(mapchipForest2, 6, 0, 32, 32, 32*x, 32*y, 32, 32);       // 木
             if (curMap[y][x] === "FT03") ctx.drawImage(mapchipForest2, 32, 0, 32, 32, 32*x, 32*y, 32, 32);       // 木
@@ -287,6 +335,24 @@ function drawMap(ctx) {
             if (curMap[y][x] === "FT78") ctx.drawImage(mapchipForest, 0, 0, 32, 32, 32*x, 32*y, 32, 32);       // 大きい草上(地面)
             if (curMap[y][x] === "FT78") ctx.drawImage(mapchipForest3, 320, 416, 32, 32, 32*x, 32*y, 32, 32);       // 大きい草右下部
 
+            if (curMap[y][x] === "FT80") ctx.drawImage(mapchipForest, 0, 0, 32, 32, 32*x, 32*y, 32, 32);       // 小さい木(地面)
+            if (curMap[y][x] === "FT80") ctx.drawImage(mapchipForest3, 416, 352, 32, 32, 32*x, 32*y, 32, 32);       // 小さい木
+            if (curMap[y][x] === "FT81") ctx.drawImage(mapchipForest, 0, 0, 32, 32, 32*x, 32*y, 32, 32);       // 小さい木(地面)
+            if (curMap[y][x] === "FT81") ctx.drawImage(mapchipForest3, 448, 352, 32, 32, 32*x, 32*y, 32, 32);       // 小さい木
+            if (curMap[y][x] === "FT82") ctx.drawImage(mapchipForest, 0, 0, 32, 32, 32*x, 32*y, 32, 32);       // 小さい木(地面)
+            if (curMap[y][x] === "FT82") ctx.drawImage(mapchipForest3, 480, 352, 32, 32, 32*x, 32*y, 32, 32);       // 小さい木
+            if (curMap[y][x] === "FT83") ctx.drawImage(mapchipForest, 0, 0, 32, 32, 32*x, 32*y, 32, 32);       // 小さい木(地面)
+            if (curMap[y][x] === "FT83") ctx.drawImage(mapchipForest3, 416, 384, 32, 32, 32*x, 32*y, 32, 32);       // 小さい木
+            if (curMap[y][x] === "FT84") ctx.drawImage(mapchipForest, 0, 0, 32, 32, 32*x, 32*y, 32, 32);       // 小さい木(地面)
+            if (curMap[y][x] === "FT84") ctx.drawImage(mapchipForest3, 448, 384, 32, 32, 32*x, 32*y, 32, 32);       // 小さい木
+            if (curMap[y][x] === "FT85") ctx.drawImage(mapchipForest, 0, 0, 32, 32, 32*x, 32*y, 32, 32);       // 小さい木(地面)
+            if (curMap[y][x] === "FT85") ctx.drawImage(mapchipForest3, 480, 384, 32, 32, 32*x, 32*y, 32, 32);       // 小さい木
+            if (curMap[y][x] === "FT86") ctx.drawImage(mapchipForest, 0, 0, 32, 32, 32*x, 32*y, 32, 32);       // 小さい木(地面)
+            if (curMap[y][x] === "FT86") ctx.drawImage(mapchipForest3, 416, 416, 32, 32, 32*x, 32*y, 32, 32);       // 小さい木
+            if (curMap[y][x] === "FT87") ctx.drawImage(mapchipForest, 0, 0, 32, 32, 32*x, 32*y, 32, 32);       // 小さい木(地面)
+            if (curMap[y][x] === "FT87") ctx.drawImage(mapchipForest3, 448, 416, 32, 32, 32*x, 32*y, 32, 32);       // 小さい木
+            if (curMap[y][x] === "FT88") ctx.drawImage(mapchipForest, 0, 0, 32, 32, 32*x, 32*y, 32, 32);       // 小さい木(地面)
+            if (curMap[y][x] === "FT88") ctx.drawImage(mapchipForest3, 480, 416, 32, 32, 32*x, 32*y, 32, 32);       // 小さい木
 
             /*------------------------------ ダンジョンオブジェクト ------------------------------*/
             if (curMap[y][x] === "DG01") ctx.drawImage(mapchipDungeon, 0, 0, 32, 32, 32*x, 32*y, 32, 32);       // ダンジョン地面
@@ -367,7 +433,7 @@ function mapEvent(y, x) {
     if (curMap === map) {
         // 小屋
         if (curMap[y][x] === "FL03") {
-            message = "そういえば誰かが南の木の下になにか埋めてたなあ";
+            message = "そういえば　誰かが南の木の下に　なにか埋めてたなあ";
         }
         // 木
         if (curMap[y][x] === "FL05") {
@@ -458,25 +524,64 @@ function mapEvent(y, x) {
             openBoxEvent("openBoxFlg2");
         }
         // ボス戦
-        if (pos_x === 832 && pos_y === 384) {
+        if (battleBossFlg === 0 && pos_x === 832 && pos_y === 384) {
             battleBossFlg = 1;
             // エンカウント処理
             encount();
             pos_x = 832;
             pos_y = 416;
         }
+        // ゴール
+        if (battleBossFlg === 2 && curMap[y][x] === "DG86") {
+            message = "ゲームクリア　おめでとう！！";
+            $('#dungeon-bgm').get(0).pause();
+            $('#dungeon-bgm').get(0).currentTime = 0;
+            $('#clear-se').get(0).play();
+        }
     } else if (curMap === map4) {
-      // マップ移動
-      if (curMap[y][x] === "FT99") {
-          // 音楽の切り替え
-          $('#forest-bgm').get(0).pause();
-          $('#forest-bgm').get(0).currentTime = 0;
-          $('#field-bgm').get(0).play();
-          curMap = map;
-          pos_x = 608;
-          pos_y = 448;
-          changeAngleDown();
-      }
+        // マップ移動
+        if (curMap[y][x] === "FT96") {
+            curMap = map6;
+            pos_x = 928;
+            pos_y = 192;
+        }
+        // マップ移動
+        if (curMap[y][x] === "FT98") {
+            curMap = map5;
+            pos_x = 32;
+            pos_y = 256;
+        }
+        // マップ移動
+        if (curMap[y][x] === "FT99") {
+            // 音楽の切り替え
+            $('#forest-bgm').get(0).pause();
+            $('#forest-bgm').get(0).currentTime = 0;
+            $('#field-bgm').get(0).play();
+            curMap = map;
+            pos_x = 608;
+            pos_y = 448;
+            changeAngleDown();
+        }
+    } else if (curMap === map5) {
+        // マップ移動
+        if (curMap[y][x] === "FT97") {
+            curMap = map4;
+            pos_x = 928;
+            pos_y = 288;
+        }
+    } else if (curMap === map6) {
+        // 扉（カギがあるとき）
+        if (haveKeyFlg === 0 && curMap[y][x] === "FT87") {
+            message = "カギをみつけた！";
+            $('#box-se').get(0).play();
+            haveKeyFlg = 1;
+        }
+        // マップ移動
+        if (curMap[y][x] === "FT95") {
+            curMap = map4;
+            pos_x = 32;
+            pos_y = 192;
+        }
     }
 }
 

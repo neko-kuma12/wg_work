@@ -81,8 +81,8 @@ label input {
 
 #main {
 	border: 3px solid #000;
-	margin-left: auto;
-	margin-right: auto;
+  height: 536px;
+	width: 992px;
 	background-image : url();
 	display: none;
 	background-size: cover;
@@ -151,8 +151,7 @@ label input {
 }
 
 .img-wrap {
-	width: 1200px;
-	height: 280px;
+	height: 250px;
 	margin: 20px 0px 0px 0px;
 	display: flex;
 	justify-content: space-between;
@@ -160,12 +159,12 @@ label input {
 .img-block {
 }
 .img-block img {
-	width: 300px;
-	height: 290px;
+	width: 250px;
+	height: 240px;
 }
 
 .dmg-wrap {
-	width: 1200px;
+	width: 900px;
 	height: 10px;
 	margin: 10px 0px 0px 0px;
 	display: flex;
@@ -204,12 +203,11 @@ label input {
 
 .attack-block {
 	text-align:center;
-	margin: 20px 10px 10px 20px;
 }
 
 .my-block {
-	width: 400px;
-	height: 127px;
+	width: 350px;
+	height: 97px;
 	border: ridge 5px;
 	margin: 20px 0px 10px 20px;
 	float:left;
@@ -284,8 +282,8 @@ label input {
 }
 
 .msg-block {
-	width: 750px;
-	height: 123px;
+	width: 560px;
+	height: 131px;
 	border: ridge 5px;
 	margin: 20px 10px 10px 20px;
 	resize: none;

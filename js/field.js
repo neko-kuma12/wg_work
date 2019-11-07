@@ -13,7 +13,7 @@ var curPosY = 0;
 var encountFlg = 0;
 var encountMax = 100;
 var encountMin = 0;
-var encountRt = 0;
+var encountRt = 5;
 var flame = 150;
 var haveKeyFlg = 0;
 var key = new Object();
@@ -122,7 +122,7 @@ function drawMain(ctx) {
     ctx.drawImage(player,  angle_x - motion, angle_y, 32, 32, pos_x, pos_y, 32, 32); //下
 
     // ボスキャラ描画
-    if (curMap === map3) {
+    if (curMap === map3 && battleBossFlg === 0) {
         ctx.drawImage(mob, 5, 5, 70, 70, 832, 352, 40, 40);
     }
 
@@ -240,7 +240,7 @@ function movableJudge(y, x) {
           curMap[y][x] === "FL13" || curMap[y][x] === "FL14" || curMap[y][x] === "FL15" || curMap[y][x] === "FL16" ||
           curMap[y][x] === "FL18" || curMap[y][x] === "FL19" || curMap[y][x] === "FL20" || curMap[y][x] === "FL21" ||
           curMap[y][x] === "FL22" || curMap[y][x] === "FL23" || curMap[y][x] === "FL99" ||
-          curMap[y][x] === "FT01" ||
+          curMap[y][x] === "FT01" || curMap[y][x] === "FT86" || curMap[y][x] === "FT88" ||
           curMap[y][x] === "DG01" || curMap[y][x] === "DG99")
          || (haveKeyFlg >= 1 && (curMap[y][x] === "DG80" || curMap[y][x] === "DG81" || curMap[y][x] === "DG82" || curMap[y][x] === "DG83"))
        )  {
@@ -272,6 +272,7 @@ function timer(ctx) {
     if (encountFlg === 1) {
         return;
     }
+
     // エンカウント処理
     if (encountFlg === 2) {
         encountFlg = 0;
@@ -333,7 +334,7 @@ function timer(ctx) {
 
     // 座標移動
     if (move > 0) {
-        if (message != "") {
+        if (message != "" && encountFlg != 1) {
             message = "";
         }
         move -= 32;
@@ -416,7 +417,7 @@ $(window).keydown(function(ev) {
             }, 100);
         }
         // エンカウント時のみ処理させる
-        if (encountFlg == 1) {
+        if (encountFlg === 1) {
             message = "";
             encountFlg = 2;
         }

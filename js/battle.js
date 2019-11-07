@@ -512,6 +512,11 @@ $(window).on('load', function() {
                     setMaxHp();
                     // レベルに応じMP設定
                     setMaxMp();
+
+                    // ストーリーモードのボス戦
+                    if (battleBossFlg === 1) {
+                        battleBossFlg = 2;
+                    }
                 }
             }
 
