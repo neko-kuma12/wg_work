@@ -1,4 +1,5 @@
 /* 共通 */
+var attackable = 0;
 var backImgNo = '1';                    // 選択した背景の初期値
 var battleMode = 0;                     // 戦闘モードかどうか
 var bgmNo = 'A';                        // 選択した音楽の初期値
@@ -99,7 +100,7 @@ var myMpTable = [
 var btlBgmPath = "./sound/battle";      // 戦闘BGM
 var backImgBoss = "./img/boss.jpg"      // ボス背景
 var backImgPath = "./img/forest"        // 背景
-var mobImgPath = "./img/mob"            // 敵画像
+var mobImgPath = "./img/mob-"            // 敵画像
 
 /*
  初期画面描画処理
@@ -242,6 +243,8 @@ $(window).on('load', function() {
      攻撃ボタン押下処理
     */
     $('#atk-btn').on('click', function() {
+        if (attackable === 1) {
+            attackable = 0;
         // 連打防止のためいったん攻撃ボタンを非活性
         $('#atk-btn').prop('disabled', 'true');
         // ランダム要素取得
@@ -405,7 +408,7 @@ $(window).on('load', function() {
                 // 敵の点滅
                 flushTimerSet();
                 // 敵を揺らすクラスを追加
-                $('#mob-img').removeClass('mob-move' + setMob);
+                $('#mob-img').removeClass('mob-move-' + setMob);
                 $('#mob-img').addClass('shake');
                 // ふよふよしたやつを選んだときはもう１体も揺らす
                 if (oldSetMob == 'A') {
@@ -415,7 +418,7 @@ $(window).on('load', function() {
                 var $timer = setTimeout(function() {
                     $('#mob-img').removeClass('shake');
                     if (hp > 0) {
-                        $('#mob-img').addClass('mob-move' + setMob);
+                        $('#mob-img').addClass('mob-move-' + setMob);
                         // ふよふよしたやつを選んだときはもう１体も戻す
                         if (oldSetMob == 'A') {
                             $('#mob-img2').removeClass('shake');
@@ -458,14 +461,14 @@ $(window).on('load', function() {
                     $('#battle-bgm2').get(0).currentTime = 0;
 
                     // 敵の動きを停止
-                    $('#mob-img').removeClass('mob-move' + setMob);
+                    $('#mob-img').removeClass('mob-move-' + setMob);
                     // 敵の非表示
                     $('#mob-img').fadeOut(fadeOutTime);
 
                     // ふよふよしたやつを選んだときはもう１体の停止と非表示
                     if (oldSetMob == 'A') {
-                        $('#mob-img').removeClass('mob-moveA');
-                        $('#mob-img2').removeClass('mob-moveB');
+                        $('#mob-img').removeClass('mob-move-A');
+                        $('#mob-img2').removeClass('mob-move-B');
                         $('#mob-img2').fadeOut(fadeOutTime);
                     }
 
@@ -481,6 +484,7 @@ $(window).on('load', function() {
                     log += '\n敵を倒した';
                     // 勝利BGM
                     $('#fanfare-se').get(0).play();
+                    attackable = 1;
 
                     // 経験値をランダムで取得
                     var getExp = getRandom(getExpMin, getExpMax);
@@ -506,7 +510,6 @@ $(window).on('load', function() {
                         }
                         // データセーブ
                         saveData();
-                        battleEndFlg = 1;
                     }
                     // レベルに応じたHP設定
                     setMaxHp();
@@ -517,6 +520,10 @@ $(window).on('load', function() {
                     if (battleBossFlg === 1) {
                         battleBossFlg = 2;
                     }
+
+                    setTimeout(function() {
+                        battleEndFlg = 2;
+                    }, 500);
                 }
             }
 
@@ -582,7 +589,7 @@ $(window).on('load', function() {
 
                 log += '逃走に成功した\n';
                 escapeFlg = 1;
-                battleEndFlg = 1;
+                battleEndFlg = 2;
             } else {
                 log += '逃走に失敗した・・\n';
             }
@@ -674,7 +681,7 @@ $(window).on('load', function() {
                         $('#battle-bgm2').get(0).currentTime = 0;
 
                         // 敵の動きを停止
-                        $('#mob-img').removeClass('mob-move' + setMob);
+                        $('#mob-img').removeClass('mob-move-' + setMob);
                         // 敵の非表示
                         $('#mob-img').fadeOut(fadeOutTime);
                         // ふよふよしたやつを選んだときはもう１体の停止と非表示
@@ -705,13 +712,14 @@ $(window).on('load', function() {
                 );
             }, 800);
         }
-
         // 1秒後に攻撃ボタン活性化
         if (hp > 0) {
             setTimeout(function(){
                 $('#atk-btn').prop('disabled', '');
-            }, 1000);
+                attackable = 1;
+            }, 1200);
         }
+}
     });
 });
 
@@ -731,13 +739,14 @@ function changeBgm() {
 function changeMob() {
     // 敵の非表示
     $('#mob-img').fadeOut(fadeOutTime);
-    // 敵の動きを停止
-    $('#mob-img').removeClass('mob-move' + setMob);
     // BGM停止
     $('#battle-bgm').get(0).pause();
     $('#battle-bgm').get(0).currentTime = 0;
 
     setTimeout(function(){
+        // 敵の動きを停止
+        $('#mob-img').removeClass('mob-move-' + setMob);
+
         // ふよふよしたやつを選んだときは固定の敵に変身
         if (setMob === 'A') {
             setMob = 'B1';
@@ -772,10 +781,10 @@ function changeMob() {
         changeBgm();
 
         if (oldSetMob === 'A') {
-            $('#mob-img').addClass('mob-moveA');
-            $('#mob-img2').addClass('mob-moveB');
+            $('#mob-img').addClass('mob-move-A');
+            $('#mob-img2').addClass('mob-move-B');
         } else {
-            $('#mob-img').addClass('mob-move' + setMob)
+            $('#mob-img').addClass('mob-move-' + setMob)
         }
         // 敵の表示
         $('#mob-img').fadeIn(500);
@@ -879,6 +888,8 @@ function hpColorChange(obj) {
 function init() {
     // 敵画像設定
     setMobImg();
+    // 敵アニメーション設定
+    setMobAnimation();
     // 戦闘BGM設定
     setBattleMusic();
     // 背景設定
@@ -895,13 +906,6 @@ function init() {
     // 初期化
     reset();
 
-    // 敵のアニメーション設定
-    if (setMob === 'A') {
-        $('#mob-img').addClass('mob-moveA')
-    } else {
-        $('#mob-img').addClass('mob-move' + setMob)
-    }
-
     // 敵の表示
     $('#mob-img').hide();
     $('#mob-img').fadeIn(fadeInTime, function() {
@@ -911,6 +915,7 @@ function init() {
         $('#message').html(log);
     });
     settingPhase = 0;
+    attackable = 1;
 }
 
 /**
@@ -992,6 +997,7 @@ function reset() {
     }
     chgFlg = 0;
     escapeFlg = 0;
+    battleEndFlg = 1;
     log = '';
     $('#message').html(log);
 }
@@ -1023,6 +1029,11 @@ function setBackImg() {
     // ボスの場合
     if (setMob === '9999') {
         imgPath = backImgBoss;
+    }
+
+    // ダンジョン
+    if (curMap === map3) {
+        imgPath = './img/dungeonBack.png'
     }
 
     // ストーリーモードのボス戦
@@ -1100,6 +1111,18 @@ function setMaxMp() {
 }
 
 /**
+ * 敵アニメーション設定処理
+ */
+function setMobAnimation() {
+    // 敵のアニメーション設定
+    if (setMob === 'A') {
+        $('#mob-img').addClass('mob-move-A')
+    } else {
+        $('#mob-img').addClass('mob-move-' + setMob)
+    }
+}
+
+/**
  * 敵画像設定処理
  */
 function setMobImg() {
@@ -1114,6 +1137,11 @@ function setMobImg() {
     } else if (setMob === '0') {
         // 敵をランダムで決定
         setMob = getRandom(1, 5);
+    }
+
+    // ストーリーモードの場合
+    if (battleMode != 1) {
+        setMob = encountMob();
     }
 
     // ストーリーモードのボス戦
@@ -1242,4 +1270,15 @@ function valid() {
             return false;
         }
     }
+}
+
+/**
+ * コマンドのチェック
+ */
+function validCommand() {
+  var valid = 0;
+  if ($('select#command option[value=9]').get(0) != undefined) {
+      valid = 1;
+  }
+  return valid;
 }

@@ -321,23 +321,23 @@ label input {
 	100% {transform: translate(0px, 0px); rotateZ(0deg);}
 }
 
-.mob-move1 {
+.mob-move-1 {
 	display: inline-block;
-	animation: mob-move1 .7s  infinite;
+	animation: mob-move-1 .7s  infinite;
 }
 
-@keyframes mob-move1 {
+@keyframes mob-move-1 {
 	0% {transform: translate(0px, 0px);}
 	50% {transform: translate(0px, -20px);}
 	100% {transform: translate(0px, 0px);}
 }
 
-.mob-move2 {
+.mob-move-2 {
 	display: inline-block;
-	animation: mob-move2 .7s  infinite;
+	animation: mob-move-2 .7s  infinite;
 }
 
-@keyframes mob-move2 {
+@keyframes mob-move-2 {
 	0% {transform: translate(0px, 0px);}
 	25% {transform: translate(10px, 0px);}
 	50% {transform: translate(20px, 0px);}
@@ -345,12 +345,12 @@ label input {
 	100% {transform: translate(0px, 0px);}
 }
 
-.mob-move3 {
+.mob-move-3 {
 	display: inline-block;
-	animation: mob-move3 .7s  infinite;
+	animation: mob-move-3 .7s  infinite;
 }
 
-@keyframes mob-move3 {
+@keyframes mob-move-3 {
 	0% {transform: translate(0px, -20px);}
 	25% {transform: translate(0px, -20px);}
 	50% {transform: translate(0px, -20px);}
@@ -358,12 +358,12 @@ label input {
 	100% {transform: translate(0px, 0px);}
 }
 
-.mob-move4 {
+.mob-move-4 {
 	display: inline-block;
-	animation: mob-move4 .7s  infinite;
+	animation: mob-move-4 .7s  infinite;
 }
 
-@keyframes mob-move4 {
+@keyframes mob-move-4 {
 	0% {transform: translate(0px, 0px); opacity: 0.8;}
 	25% {transform: translate(10px, 10px); opacity: 0.8;}
 	50% {transform: translate(0px, 10px); opacity: 0.8;}
@@ -371,57 +371,233 @@ label input {
 	100% {transform: translate(0px, 0px); opacity: 0.8;}
 }
 
-.mob-move5 {
+.mob-move-5 {
 	display: inline-block;
-	animation: mob-move5 linear .7s infinite;
+	animation: mob-move-5 linear .7s infinite;
 }
 
-@keyframes mob-move5 {
-    0% { transform: rotate(0deg); opacity: 0.7;}
-    25% { transform: rotate(5deg); opacity: 0.7;}
-    50% { transform: rotate(0deg); opacity: 0.7;}
-    75% { transform: rotate(-5deg); opacity: 0.7;}
-    100% { transform: rotate(0deg); opacity: 0.7;}
+@keyframes mob-move-5 {
+    0% {transform: rotate(0deg); opacity: 0.7;}
+    25% {transform: rotate(5deg); opacity: 0.7;}
+    50% {transform: rotate(0deg); opacity: 0.7;}
+    75% {transform: rotate(-5deg); opacity: 0.7;}
+    100% {transform: rotate(0deg); opacity: 0.7;}
 }
 
-.mob-moveA {
+.mob-move-A {
 	display: inline-block;
-	animation: mob-moveA .9s infinite;
+	animation: mob-move-A .9s infinite;
 }
 
-@keyframes mob-moveA {
+@keyframes mob-move-A {
 	0% {transform: translate(0px, 0px);}
 	50% {transform: translate(0px, -20px);}
 	100% {transform: translate(0px, 0px);}
 }
 
-.mob-moveB {
+.mob-move-B {
 	display: inline-block;
-	animation: mob-moveB .3s infinite;
+	animation: mob-move-B .3s infinite;
 }
 
-@keyframes mob-moveB {
+@keyframes mob-move-B {
 	0% {transform: translate(0px, 0px);}
 	50% {transform: translate(0px, -60px);}
 	100% {transform: translate(0px, 0px);}
 }
 
-.mob-move9999 {
+.mob-move-9999 {
 	display: inline-block;
-	animation-name: mob-move9999;
+	animation-name: mob-move-9999;
 	animation-duration: 2s;
 	animation-iteration-count: infinite;
 }
 
-@keyframes mob-move9999 {
-    0% { transform: translate(0px, 0px)}
-    50% { transform: translate(0px, -30px) scale(1.1, 1.1)}
-    100% { transform: translate(0px, 0px)}
+@keyframes mob-move-9999 {
+    0% {transform: translate(0px, 0px)}
+    50% {transform: translate(0px, -30px) scale(1.1, 1.1)}
+    100% {transform: translate(0px, 0px)}
+}
+
+.mob-move-sraim {
+	display: inline-block;
+	animation: mob-move-sraim .7s  infinite;
+}
+
+@keyframes mob-move-sraim {
+  0% {transform: translate(0px, 0px);}
+	25% {transform: translate(10px, 0px);}
+	50% {transform: translate(15px, 0px);}
+	75% {transform: translate(10px, 0px);}
+	100% {transform: translate(0px, 0px);}
+}
+
+.mob-move-bat {
+	display: inline-block;
+	animation: mob-move-bat .7s  infinite;
+}
+
+@keyframes mob-move-bat {
+	0% {transform: translate(0px, 0px);}
+	50% {transform: translate(0px, -5px);}
+	100% {transform: translate(0px, 0px);}
+}
+
+.mob-move-crow {
+	display: inline-block;
+	animation: mob-move-crow linear .7s infinite;
+}
+
+@keyframes mob-move-crow {
+    0% {transform: rotate(5deg);}
+    25% {transform: rotate(0deg);}
+    50% {transform: rotate(0deg);}
+    75% {transform: rotate(0deg);}
+    100% {transform: rotate(-5deg);}
+}
+
+.mob-move-mouse {
+	display: inline-block;
+	animation: mob-move-mouse .7s  infinite;
+}
+
+@keyframes mob-move-mouse {
+	0% {transform: translate(0px, -10px);}
+	25% {transform: translate(0px, -10px);}
+	50% {transform: translate(0px, -10px);}
+	75% {transform: translate(0px, -10px);}
+	100% {transform: translate(0px, 0px);}
+}
+
+.mob-move-seed {
+	display: inline-block;
+	animation: mob-move-seed .7s  infinite;
+}
+
+@keyframes mob-move-seed {
+	0% {transform: translate(0px, -5px);}
+	25% {transform: translate(0px, -10px);}
+	50% {transform: translate(0px, -10px);}
+	75% {transform: translate(0px, -5px);}
+	100% {transform: translate(0px, 0px);}
+}
+
+.mob-move-alraune {
+	display: inline-block;
+	animation: mob-move-alraune .9s  infinite;
+}
+
+@keyframes mob-move-alraune {
+	0% {transform: translate(0px, -20px);}
+	25% {transform: translate(0px, -20px);}
+	50% {transform: translate(0px, -20px);}
+	75% {transform: translate(0px, -20px);}
+	100% {transform: translate(0px, 0px);}
+}
+
+.mob-move-rafflesia {
+	display: inline-block;
+	animation: mob-move-rafflesia .9s  infinite;
+}
+
+@keyframes mob-move-rafflesia {
+	0% {transform: translate(0px, 0px);}
+	25% {transform: translate(15px, 0px);}
+	50% {transform: translate(25px, 0px);}
+	75% {transform: translate(15px, 0px);}
+	100% {transform: translate(0px, 0px);}
+}
+
+.mob-move-dryad {
+	display: inline-block;
+	animation: mob-move-dryad linear .7s infinite;
+}
+
+@keyframes mob-move-dryad {
+    0% {transform: rotate(0deg);}
+    25% {transform: rotate(5deg);}
+    50% {transform: rotate(0deg);}
+    75% {transform: rotate(-5deg);}
+    100% {transform: rotate(0deg);}
+}
+
+.mob-move-caterpillar {
+	display: inline-block;
+	animation: mob-move-caterpillar .9s  infinite;
+}
+
+@keyframes mob-move-caterpillar {
+    0% {transform: translate(0px, 0px);}
+    25% {transform: translate(10px, -20px);}
+    50% {transform: translate(10px, -25px);}
+    75% {transform: translate(10px, -20px);}
+    100% {transform: translate(0px, 0px);}
+}
+
+.mob-move-lizard {
+	display: inline-block;
+	animation: mob-move-lizard .7s infinite;
+}
+
+@keyframes mob-move-lizard {
+    0% {transform: translate(0px, 0px);}
+    25% {transform: translate(-10px, 20px);}
+    50% {transform: translate(-10px, 25px);}
+    75% {transform: translate(-10px, 20px);}
+    100% {transform: translate(0px, 0px);}
 }
 
 .magic-effect {
 	display: inline-block;
 	animation: magic-effect .5s;
+}
+
+.mob-move-tarantula {
+	display: inline-block;
+	animation: mob-move-tarantula .9s  infinite;
+}
+
+@keyframes mob-move-tarantula {
+	0% {transform: translate(0px, -20px);}
+	25% {transform: translate(0px, -20px);}
+	50% {transform: translate(0px, -20px);}
+	75% {transform: translate(0px, -20px);}
+	100% {transform: translate(0px, 0px);}
+}
+
+.mob-move-bomb {
+	display: inline-block;
+	animation: mob-move-bomb .9s  infinite;
+}
+
+@keyframes mob-move-bomb {
+	0% {transform: translate(0px, 0px);}
+	50% {transform: translate(0px, -20px);}
+	100% {transform: translate(0px, 0px);}
+}
+
+.mob-move-tsuthinoko {
+	display: inline-block;
+	animation: mob-move-tsuthinoko .9s  infinite;
+}
+
+@keyframes mob-move-tsuthinoko {
+    0% {transform: translate(0px, 0px);}
+    25% {transform: translate(5px, -20px);}
+    50% {transform: translate(10px, -25px);}
+    75% {transform: translate(5px, -20px);}
+    100% {transform: translate(0px, 0px);}
+}
+
+.mob-move-mole {
+	display: inline-block;
+	animation: mob-move-mole .9s  infinite;
+}
+
+@keyframes mob-move-mole {
+    0% {transform: translate(0px, 0px)}
+    50% {transform: translate(0px, -15px) scale(1.1, 1.1)}
+    100% {transform: translate(0px, 0px)}
 }
 
 @keyframes magic-effect {

@@ -28,11 +28,97 @@ var keyCodeF5 = 116;
 var keyCodeLeft = 37;
 var keyCodeRight = 39;
 var keyCodeUp = 38;
+var keyOperation = 1;
 var message;
 var mob;
+var mobPattern1 = [
+    {
+        'name': 'sraim',
+        'ratio': 55.0
+    },
+    {
+        'name': 'bat',
+        'ratio': 25.0
+    },
+    {
+        'name': 'crow',
+        'ratio': 10.0
+    },
+    {
+        'name': 'mouse',
+        'ratio': 10.0
+    }
+];
+var mobPattern2 = [
+    {
+        'name': 'bat',
+        'ratio': 25.0
+    },
+    {
+        'name': 'crow',
+        'ratio': 25.0
+    },
+    {
+        'name': 'mouse',
+        'ratio': 30.0
+    },
+    {
+        'name': 'seed',
+        'ratio': 20.0
+    }
+];
+var mobPattern3 = [
+    {
+        'name': 'tarantula',
+        'ratio': 15.0
+    },
+    {
+        'name': 'bomb',
+        'ratio': 25.0
+    },
+    {
+        'name': 'tsuthinoko',
+        'ratio': 20.0
+    },
+    {
+        'name': 'mole',
+        'ratio': 40.0
+    }
+];
+var mobPattern4 = [
+    {
+        'name': 'alraune',
+        'ratio': 20.0
+    },
+    {
+        'name': 'rafflesia',
+        'ratio': 10.0
+    },
+    {
+        'name': 'dryad',
+        'ratio': 30.0
+    },
+    {
+        'name': 'caterpillar',
+        'ratio': 25.0
+    },
+    {
+        'name': 'lizard',
+        'ratio': 15.0
+    }
+];
+
+
 var motion = 0;
 var mouseState = -1;
 var move = 0;
+var npc;
+var npc_angle_x = 32;
+var npc_angle_y = 64;
+var npc_motion = 0;
+var npc_oldMotion = 0;
+var npc_pos_x = 832;
+var npc_pos_y = 352;
 var oldMotion = 0;
 var openBoxFlg1 = 0;
 var openBoxFlg2 = 0;
@@ -42,6 +128,7 @@ var pos_y = 192;
 
 var playerImg = './img/hiyoco.png';
 var mobImg = './img/mobchip.png'
+var npcImg = './img/chara.png'
 
 // ※未使用
 function clientToCanvas(canvas, clientX, clientY) {
@@ -57,33 +144,53 @@ function clientToCanvas(canvas, clientX, clientY) {
 /**
  * 向き変更（下）
  */
-function changeAngleDown() {
-    angle_x = 32;
-    angle_y = 32;
+function changeAngleDown(obj) {
+    if (obj === 'p') {
+        angle_x = 32;
+        angle_y = 32;
+    } else if (obj === 'n') {
+        npc_angle_x = 32;
+        npc_angle_y = 64;
+    }
 }
 
 /**
  * 向き変更（左）
  */
-function changeAngleLeft() {
-    angle_x = 32;
-    angle_y = 64;
+function changeAngleLeft(obj) {
+    if (obj === 'p') {
+        angle_x = 32;
+        angle_y = 64;
+    } else if (obj === 'n') {
+        npc_angle_x = 32;
+        npc_angle_y = 96;
+    }
 }
 
 /**
  * 向き変更（右）
  */
-function changeAngleRight() {
-    angle_x = 126;
-    angle_y = 64;
+function changeAngleRight(obj) {
+    if (obj === 'p') {
+        angle_x = 126;
+        angle_y = 64;
+    } else if (obj === 'n') {
+        npc_angle_x = 32;
+        npc_angle_y = 32;
+    }
 }
 
 /**
  * 向き変更（上）
  */
-function changeAngleUp() {
-    angle_x = 126;
-    angle_y = 32;
+function changeAngleUp(obj) {
+    if (obj === 'p') {
+        angle_x = 126;
+        angle_y = 32;
+    } else if (obj === 'n') {
+        npc_angle_x = 32;
+        npc_angle_y = 0;
+    }
 }
 
 /**
@@ -106,6 +213,25 @@ function changeMotion() {
 }
 
 /**
+ * NPC動き変更
+ */
+function changeMotionNpc() {
+    if (npc_motion === -32) {
+        npc_motion = 0;
+        npc_oldMotion = -32;
+    } else if (npc_motion === 0) {
+        if (npc_oldMotion === 32) {
+            npc_motion = -32;
+        } else {
+            npc_motion = 32;
+        }
+    } else if (motion === 32) {
+        npc_motion = 0;
+        npc_oldMotion = 32;
+    }
+}
+
+/**
  * 描画メイン処理
  */
 function drawMain(ctx) {
@@ -124,6 +250,14 @@ function drawMain(ctx) {
     // ボスキャラ描画
     if (curMap === map3 && battleBossFlg === 0) {
         ctx.drawImage(mob, 5, 5, 70, 70, 832, 352, 40, 40);
+    }
+
+    // NPC歩行動作のための処理
+    changeMotionNpc();
+
+    // NPCキャラ描画
+    if (curMap === map) {
+        ctx.drawImage(npc, npc_angle_x - npc_motion, npc_angle_y, 32, 32, npc_pos_x, npc_pos_y, 35, 35);
     }
 
     // ステータ描画
@@ -190,6 +324,9 @@ function encount() {
     // ダンジョンBGM停止
     $('#dungeon-bgm').get(0).pause();
     $('#dungeon-bgm').get(0).currentTime = 0;
+    // 森林BGM停止
+    $('#forest-bgm').get(0).pause();
+    $('#forest-bgm').get(0).currentTime = 0;
     // フィールドマップを非表示
     $('#canvas').css('display', 'none');
     // 戦闘開始画面を表示
@@ -219,6 +356,32 @@ function encountJudge() {
 }
 
 /**
+ * エンカウントする敵の処理
+ */
+function encountMob() {
+    var pattern;
+    if (curMap === map) {
+        pattern = mobPattern1;
+    } else if (curMap === map2) {
+        pattern = mobPattern2;
+    } else if (curMap === map3) {
+        pattern = mobPattern3;
+    } else if (curMap === map4 || curMap === map5 || curMap === map6) {
+        pattern = mobPattern4;
+    }
+
+    var ratioArr = [];
+    for (var i = 0; i < pattern.length; i++) {
+        var ratio = pattern[i]['ratio'] * 10;
+        for (var j = 0; j < ratio; j++) {
+            ratioArr.push(pattern[i]['name']);
+        }
+    }
+    var arrayIndex = Math.floor(Math.random() * ratioArr.length);
+    return ratioArr[arrayIndex];
+}
+
+/**
  * 画像読み込み処理
  */
 function loadImage() {
@@ -228,6 +391,9 @@ function loadImage() {
     // 敵画像読み込み
     mob = new Image();
     mob.src = mobImg;
+    // NPC画像読み込み
+    npc = new Image();
+    npc.src = npcImg;
     // マップ画像読み込み
     loadMapImage();
 }
@@ -247,6 +413,45 @@ function movableJudge(y, x) {
         return true;
     } else {
         return false;
+    }
+}
+
+/**
+ * NPC移動処理
+ */
+function npcMove(ctx) {
+    var x = npc_pos_x / 32;
+    var y = npc_pos_y / 32;
+
+    var rdm = getRandom(1, 4);
+    if (rdm === 1) {
+        x--;
+        changeAngleLeft('n');
+        if (movableJudge(y, x)) {
+            npc_pos_x -= 32;
+        }
+    } else if (rdm === 2) {
+        if (y > 0) {
+            y--;
+            changeAngleUp('n');
+            if (movableJudge(y, x)) {
+                npc_pos_y -= 32;
+            }
+        }
+    } else if (rdm === 3) {
+        x++;
+        changeAngleRight('n');
+        if (movableJudge(y, x)) {
+            npc_pos_x += 32;
+        }
+    } else if (rdm === 4) {
+        if (y < 16) {
+            y++;
+            changeAngleDown('n');
+            if (movableJudge(y, x)) {
+                npc_pos_y += 32;
+            }
+        }
     }
 }
 
@@ -291,7 +496,7 @@ function timer(ctx) {
                 encountJudge();
             }
             // 左向きに変更
-            changeAngleLeft();
+            changeAngleLeft('p');
         } else if (key.up === true) {
             var x = pos_x / 32;
             var y = pos_y / 32;
@@ -304,7 +509,7 @@ function timer(ctx) {
                 }
             }
             // 上向きに変更
-            changeAngleUp();
+            changeAngleUp('p');
         } else if (key.right === true) {
             var x = pos_x / 32;
             var y = pos_y / 32;
@@ -315,7 +520,7 @@ function timer(ctx) {
                 encountJudge();
             }
             // 右向きに変更
-            changeAngleRight();
+            changeAngleRight('p');
         } else if (key.down === true) {
             var x = pos_x / 32;
             var y = pos_y / 32;
@@ -328,7 +533,7 @@ function timer(ctx) {
                 }
             }
             // 下向きに変更
-            changeAngleDown();
+            changeAngleDown('p');
         }
     }
 
@@ -355,7 +560,7 @@ function timer(ctx) {
 
 //    ctx.fillText("Code = " + key.keyCode, 20, 120);
 //    ctx.fillText(curPosX + ", " + curPosY + "(" + mouseState + ")", 20, 60);
-//    console.log(pos_x + ' , ' + pos_y);
+//    console.log('battleEndFlg : ' + battleEndFlg);
 }
 
 /**
@@ -378,6 +583,8 @@ $(window).on('load', function() {
     $(window).on('resize', function(){setSize()});
     // 一定間隔でタイマーイベント処理を行う
     setInterval(function(){timer(ctx)}, flame);
+    // NPC移動用タイマーイベント
+    setInterval(function(){npcMove(ctx)}, 3000);
 });
 
 /**
@@ -399,8 +606,12 @@ $(window).keydown(function(ev) {
 
     // エンターキーが押された場合
     if (keyCode === keyCodeEnter) {
+        // 戦闘中のみコマンド操作を受け付ける
+        if (battleEndFlg === 1 && keyOperation === 1) {
+            $('#atk-btn').click();
+        }
         // 戦闘終了時のみ処理させる
-        if (battleEndFlg == 1) {
+        if (battleEndFlg == 2) {
             // 戦闘画面を非表示
             $('#main').css('display', 'none');
             // フラグを元に戻す
@@ -410,8 +621,16 @@ $(window).keydown(function(ev) {
             $('#fanfare-se').get(0).pause();
             $('#fanfare-se').get(0).currentTime = 0;
             setTimeout(function() {
-                // フィールドBGM再生
-                $('#field-bgm').get(0).play();
+                if (curMap === map3) {
+                    // ダンジョンBGM再生
+                    $('#dungeon-bgm').get(0).play();
+                } else if (curMap === map4 || curMap === map5 || curMap === map6) {
+                    // 森林BGM再生
+                    $('#forest-bgm').get(0).play();
+                } else {
+                    // フィールドBGM再生
+                    $('#field-bgm').get(0).play();
+                }
                 // フィールド画面を表示
                 $('#canvas').css('display', 'block');
             }, 100);
@@ -428,13 +647,35 @@ $(window).keydown(function(ev) {
 
     // 移動処理
     if (keyCode === keyCodeLeft) {
-        key.left = true;
+        if (battleEndFlg === 0) {
+            key.left = true;
+        }
     } else if (keyCode === keyCodeUp) {
-        key.up = true;
+      　// 戦闘中のみコマンド操作を受け付ける
+        if (battleEndFlg === 1 && keyOperation === 1) {
+            if ($('[name=command]').val() != '1' && $('[name=command]').val() != '9') {
+                $('#command').val(Number($('[name=command]').val()) -1);
+            } else if ($('[name=command]').val() === '1' && validCommand() === 1) {
+                $('#command').val('9');
+            }
+        } else if (battleEndFlg === 0) {
+            key.up = true;
+        }
     } else if (keyCode === keyCodeRight) {
-        key.right = true;
-    }else if (keyCode === keyCodeDown) {
-        key.down = true;
+        if (battleEndFlg === 0) {
+            key.right = true;
+        }
+    } else if (keyCode === keyCodeDown) {
+      　// 戦闘中のみコマンド操作を受け付ける
+        if (battleEndFlg === 1 && keyOperation === 1) {
+            if ($('[name=command]').val() != '5' && $('[name=command]').val() != '9') {
+                $('#command').val(Number($('[name=command]').val()) +1);
+            } else if ($('[name=command]').val() === '9' && validCommand() === 1) {
+                $('#command').val('1');
+            }
+        } else if (battleEndFlg === 0) {
+            key.down = true;
+        }
     }
 });
 
@@ -451,7 +692,7 @@ $(window).keyup(function(ev) {
         key.up = false;
     } else if (keyCode === keyCodeRight) {
         key.right = false;
-    }else if (keyCode === keyCodeDown) {
+    } else if (keyCode === keyCodeDown) {
         key.down = false;
     }
 });
