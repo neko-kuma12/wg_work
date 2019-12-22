@@ -1,107 +1,3 @@
-/* 共通 */
-var attackable = 0;
-var backImgNo = '1';                    // 選択した背景の初期値
-var battleMode = 0;                     // 戦闘モードかどうか
-var bgmNo = 'A';                        // 選択した音楽の初期値
-var chgFlg = 0;                         // 敵が変身したか判定するフラグ
-var chgPer = 50;                        // 変身するHPの割合
-var dmgmax = 1000;                      // ダメージレンジ(最大)
-var dmgmin = 100;                       // ダメージレンジ(最小)
-var dmgRtCrtl = 1.5;                    // ダメージ倍率(クリティカル)
-var dmgRtMgc = 1.3;                     // ダメージ倍率(まほう)
-var dmgRtMob = 0.8;                     // ダメージ倍率(敵)
-var escapeFlg = 0;                      // 逃げるが成功したか判定するフラグ
-var fadeInTime = 1000;                  // フェードインの時間
-var fadeOutTime = 1000;                 // フェードアウトの時間
-var flushCounter = 6;                   // 点滅用カウンター
-var flushInterval = 100;                // 点滅間隔
-var flushTimer;                         // 点滅用タイマー
-var getExpMax = 15;                     // 取得経験値(最大)
-var getExpMin = 1;                      // 取得経験値(最小)
-var hpDngPer = 20;                      // 残HP(瀕死)判定割合
-var hpDngColor = "#dc143c"              // 残HP(瀕死)文字色
-var hpmax = 10000;                      // HPレンジ(最大)
-var hpmin = 5000;                       // HPレンジ(最小)
-var hpSafeColor = "white"               // 残HP(安全)文字色
-var hpWarnPer = 50;                     // 残HP(注意)判定割合
-var hpWarnColor = "#ffa500";            // 残HP(注意)文字色
-var lmtSp = 100;                        // SP限界値
-var log = "";                           // メッセージログ
-var settingPhase = 0;                   // 設定画面か判定するフラグ
-var spAcm = 10;                         // 攻撃時SP増加量
-var spAcmChar = 50;                     // ためる時SP増加量
-var spMaxFlg = 0;                       // SPがMAXになったか判定するフラグ
-var useMagicMp = 20;                    // まほうで使用するMP量
-
-/* 敵のパラメータ */
-var mhp = 0;                            // 最大HP
-var hp = 0;                             // 現在のHP
-var hpbar = $('#hp-bar').width();       // HPゲージの幅
-var setMob = 1;                         // 選択した敵の初期値
-var oldSetMob = 1;                      // 最初に選択した敵を保持
-
-/* 自分のパラメータ */
-var myMhp = 0;                          // 最大HP(自分)
-var myHp = 0;                           // 現在のHP(自分)
-var myHpbar = $('#myhp-bar').width();   // HPゲージの幅(自分)
-var myMmp = 200;                        // 最大MP(自分)
-var myMp = 200;                         // 現在のMP(自分)
-var myMsp = 100;                        // 最大SP(自分)
-var mySp = 0;                           // 現在のSP(自分)
-var mySpbar = 0;                        // SPゲージの幅(自分)
-var lebel = 1;                          // レベル
-var exp = 0;                            // 経験値
-var exptable = [
-11,
-23,
-35,
-52,
-70,
-94,
-137,
-195,
-262,
-359,
-463,
-505
-];
-var myHpTable = [
-10,
-15,
-23,
-35,
-53,
-80,
-120,
-180,
-270,
-405,
-608,
-912,
-1368
-];
-var myMpTable = [
-0,
-8,
-12,
-17,
-24,
-34,
-48,
-68,
-96,
-135,
-189,
-265,
-371
-];
-
-/* ファイル関連 */
-var btlBgmPath = "./sound/battle";      // 戦闘BGM
-var backImgBoss = "./img/boss.jpg"      // ボス背景
-var backImgPath = "./img/forest"        // 背景
-var mobImgPath = "./img/mob-"            // 敵画像
-
 /*
  初期画面描画処理
 */
@@ -289,7 +185,7 @@ $(window).on('load', function() {
                     }
                     // 回復効果音
                     $('#cure-se').get(0).play();
-                    log += 'なんと敵のHPが' + cureHp + '回復した！\n';
+                    log += mobNm+'のHPが' + cureHp + '回復した\n';
 
                     // 回復量をポップ表示
                     $('#pop').addClass('cure-pop');
@@ -304,7 +200,7 @@ $(window).on('load', function() {
                 }
             } else {
                 // ランダムでダメージ生成
-                var dmg = getRandom(dmgmin, dmgmax);
+                var dmg = getRandom(myDmgMin, myDmgMax);
 
                 // 魔法のときは通常よりダメージ倍率アップ
                 if (cmd == '2') {
@@ -481,11 +377,17 @@ $(window).on('load', function() {
 //                    // 再戦ボタンを表示
 //                    $('#retry-btn').css('display', '');
 
-                    log += '\n敵を倒した';
+                    log += '\n'+mobNm+'を倒した';
                     // 勝利BGM
                     $('#fanfare-se').get(0).play();
                     attackable = 1;
 
+                    // ストーリーーモードの場合
+                    if (battleMode != 1) {
+                        //敵ごとに設定した経験値
+                        getExpMin = mobExpMin;
+                        getExpMax = mobExpMax
+                    }
                     // 経験値をランダムで取得
                     var getExp = getRandom(getExpMin, getExpMax);
                     exp = parseInt(exp) + parseInt(getExp);
@@ -616,7 +518,7 @@ $(window).on('load', function() {
                 if (random1 == 7) {
                     // ミス効果音
                     $('#miss-se').get(0).play();
-                    log += '敵の攻撃ミス！\n';
+                    log += mobNm+'の攻撃ミス！\n';
 
                     // ポップ表示
                     $('#myPop').addClass('my-miss-pop');
@@ -630,7 +532,7 @@ $(window).on('load', function() {
                     // ランダムが0なら痛恨の一撃
                     if (random1 == 0) {
                         dmg = Math.round(dmg * dmgRtCrtl);
-                        log += '敵のクリティカル！! ';
+                        log += mobNm+'のクリティカル！! ';
                     }
 
                     // 敵のダメージバランス調整
@@ -670,7 +572,7 @@ $(window).on('load', function() {
                     }, 500)
 
                     $('#mobatk-se').get(0).play();
-                    log += '敵から' + dmg + 'のダメージをくらった\n';
+                    log += mobNm+'から' + dmg + 'のダメージをくらった\n';
 
                     // 自分のHPが0になったらゲームオーバー
                     if (myHp <= 0) {
@@ -700,7 +602,7 @@ $(window).on('load', function() {
                             // 再戦ボタン表示
                             $('#retry-btn').css('display', '');
                         }
-                        log += '\n敵に倒された・・・';
+                        log += '\n'+mobNm+'に倒された・・・';
                         // ゲームオーバーBGM
                         $('#gameover-se').get(0).play();
                     }
@@ -911,7 +813,7 @@ function init() {
     $('#mob-img').fadeIn(fadeInTime, function() {
         // 攻撃ボタン活性
         $('#atk-btn').prop('disabled', '');
-        log += '敵が現れた\n';
+        log += mobNm+'が現れた\n';
         $('#message').html(log);
     });
     settingPhase = 0;
@@ -923,6 +825,7 @@ function init() {
  */
 function loadData() {
     var mydata = "";
+    var keyItem = "";
     if(!localStorage.getItem('savedata')) {
         lebel = 1;
         exp = 0;
@@ -934,10 +837,15 @@ function loadData() {
         // レベルと経験値を設定
         lebel = lineArr[0];
         exp = lineArr[1];
+        if (lineArr[2] == 1) {
+            keyItem = "扉の鍵"
+        }
     }
+
     // レベルと経験値を表示
     $('.lebel').html(lebel);
     $('.exp').html(exp);
+    $('.item').html(keyItem);
 }
 
 /**
@@ -1010,6 +918,7 @@ function saveData() {
     // レベルと経験値を設定
     lineArr[0] = lebel;
     lineArr[1] = exp;
+    lineArr[2] = haveKeyFlg;
     var savedata = lineArr;
     localStorage.setItem('savedata', savedata);
 }
@@ -1075,6 +984,9 @@ function setDamege() {
         var setDmgMin = Number($('input[name="dmg-range-min"]').val());
         var setDmgMax = Number($('input[name="dmg-range-max"]').val());
 
+        myDmgMin = dmgmin;
+        myDmgMax = dmgmax;
+
         // ダメージ最小値の入力があれば入力値を設定する
         if (setDmgMin != '') {
             dmgmin = setDmgMin;
@@ -1088,8 +1000,8 @@ function setDamege() {
         dmgmin = 30;
         dmgmax = 100;
     } else {
-        dmgmin = 1;
-        dmgmax = 5;
+        dmgmin = mobDmgMin;
+        dmgmax = mobDmgMax;
     }
 }
 
@@ -1183,8 +1095,8 @@ function setMobStatus() {
         hpmin = 600;
         hpmax = 1200;
     } else {
-        hpmin = 5;
-        hpmax = 10;
+        hpmin = mobHpMin;
+        hpmax = mobHpMax;
     }
     // ランダムで敵HP生成
     mhp = getRandom(hpmin, hpmax);

@@ -1,34 +1,3 @@
-var box;
-var boxImg = './img/box.png';
-var curMap;
-var door;
-var doorHideLeft = 256;
-var doorHideRight = 288;
-var doorHideY1 = 0;
-var doorHideY2 = 32;
-var doorImg = './img/door.png';
-var dungeonImg = './img/dungeon.png';
-var dungeonImg2 = './img/dungeon2.png';
-var dungeonImg3 = './img/dungeon3.png';
-var fieldImg = './img/field.png';
-var fieldImg2 = './img/field2.png';
-var fieldImg3 = './img/field3.png';
-var forestImg = './img/forest.png';
-var forestImg2 = './img/forest2.png';
-var forestImg3 = './img/forest3.png';
-var mapchip2;
-var mapchip3;
-var mapchipDungeon
-var mapchipDungeon2;
-var mapchipDungeon3;
-var mapchipForest
-var mapchipForest2;
-var mapchipForest3;
-var openBoxDisp1 = 0;
-var openBoxDisp2 = 0;
-var sea;
-var seaImg = './img/sea.png';
-
 // フィールド1枚目
 var map = [
     ["FL79", "FL73", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90", "FL90"],
@@ -576,9 +545,11 @@ function mapEvent(y, x) {
     } else if (curMap === map6) {
         // カギが取得
         if (haveKeyFlg === 0 && curMap[y][x] === "FT87") {
-            message = "カギをみつけた！";
+            message = "扉のカギをみつけた！";
             $('#box-se').get(0).play();
             haveKeyFlg = 1;
+            // データセーブ
+            saveData();
         }
         // マップ移動
         if (curMap[y][x] === "FT95") {

@@ -1,135 +1,3 @@
-var angle = 1;
-var angle_x = 32;
-var angle_y = 32;
-var battleEndFlg = 0;
-var battleBossFlg = 0;
-var canvas;
-var canvasHeight = 576;
-var canvasWidth = 992;
-var counter;
-var ctx;
-var curPosX = 0;
-var curPosY = 0;
-var encountFlg = 0;
-var encountMax = 100;
-var encountMin = 0;
-var encountRt = 5;
-var flame = 150;
-var haveKeyFlg = 0;
-var key = new Object();
-    key.up = false;
-    key.down = false;
-    key.right = false;
-    key.left = false;
-    key.push = '';
-var keyCodeDown = 40;
-var keyCodeEnter = 13;
-var keyCodeF5 = 116;
-var keyCodeLeft = 37;
-var keyCodeRight = 39;
-var keyCodeUp = 38;
-var keyOperation = 1;
-var message;
-var mob;
-var mobPattern1 = [
-    {
-        'name': 'sraim',
-        'ratio': 55.0
-    },
-    {
-        'name': 'bat',
-        'ratio': 25.0
-    },
-    {
-        'name': 'crow',
-        'ratio': 10.0
-    },
-    {
-        'name': 'mouse',
-        'ratio': 10.0
-    }
-];
-var mobPattern2 = [
-    {
-        'name': 'bat',
-        'ratio': 25.0
-    },
-    {
-        'name': 'crow',
-        'ratio': 25.0
-    },
-    {
-        'name': 'mouse',
-        'ratio': 30.0
-    },
-    {
-        'name': 'seed',
-        'ratio': 20.0
-    }
-];
-var mobPattern3 = [
-    {
-        'name': 'tarantula',
-        'ratio': 15.0
-    },
-    {
-        'name': 'bomb',
-        'ratio': 25.0
-    },
-    {
-        'name': 'tsuthinoko',
-        'ratio': 20.0
-    },
-    {
-        'name': 'mole',
-        'ratio': 40.0
-    }
-];
-var mobPattern4 = [
-    {
-        'name': 'alraune',
-        'ratio': 20.0
-    },
-    {
-        'name': 'rafflesia',
-        'ratio': 10.0
-    },
-    {
-        'name': 'dryad',
-        'ratio': 30.0
-    },
-    {
-        'name': 'caterpillar',
-        'ratio': 25.0
-    },
-    {
-        'name': 'lizard',
-        'ratio': 15.0
-    }
-];
-
-
-var motion = 0;
-var mouseState = -1;
-var move = 0;
-var npc;
-var npc_angle_x = 32;
-var npc_angle_y = 64;
-var npc_motion = 0;
-var npc_oldMotion = 0;
-var npc_pos_x = 832;
-var npc_pos_y = 352;
-var oldMotion = 0;
-var openBoxFlg1 = 0;
-var openBoxFlg2 = 0;
-var player;
-var pos_x = 256;
-var pos_y = 192;
-
-var playerImg = './img/hiyoco.png';
-var mobImg = './img/mobchip.png'
-var npcImg = './img/chara.png'
-
 // ※未使用
 function clientToCanvas(canvas, clientX, clientY) {
     var cx = clientX - canvas.offsetLeft + document.body.scrollLeft;
@@ -360,6 +228,7 @@ function encountJudge() {
  */
 function encountMob() {
     var pattern;
+    var name;
     if (curMap === map) {
         pattern = mobPattern1;
     } else if (curMap === map2) {
@@ -372,13 +241,25 @@ function encountMob() {
 
     var ratioArr = [];
     for (var i = 0; i < pattern.length; i++) {
-        var ratio = pattern[i]['ratio'] * 10;
+        var ratio = pattern[i]['ratio'];
         for (var j = 0; j < ratio; j++) {
             ratioArr.push(pattern[i]['name']);
         }
     }
     var arrayIndex = Math.floor(Math.random() * ratioArr.length);
-    return ratioArr[arrayIndex];
+    name = ratioArr[arrayIndex];
+    var matchData = pattern.filter(function(item, index){
+      if (item.name == name) return true;
+    });
+    mobHpMin = matchData[0].hpMin;
+    mobHpMax = matchData[0].hpMax;
+    mobDmgMin = matchData[0].dmgMin;
+    mobDmgMax = matchData[0].dmgMax;
+    mobExpMin = matchData[0].expMin;
+    mobExpMax = matchData[0].expMax;
+    mobNm = matchData[0].name2;
+
+    return name;
 }
 
 /**
@@ -560,7 +441,7 @@ function timer(ctx) {
 
 //    ctx.fillText("Code = " + key.keyCode, 20, 120);
 //    ctx.fillText(curPosX + ", " + curPosY + "(" + mouseState + ")", 20, 60);
-//    console.log('battleEndFlg : ' + battleEndFlg);
+//    console.log('haveKeyFlg : ' + haveKeyFlg);
 }
 
 /**
